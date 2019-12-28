@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fvV-47-Phe">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment version="4640" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,13 +20,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSd-CH-Spp" userLabel="Continue Button">
-                                <rect key="frame" x="84" y="433" width="246" height="30"/>
+                                <rect key="frame" x="84" y="433" width="254" height="30"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Continue To The App">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="4v3-8k-Q42" kind="show" id="8np-tZ-vSW"/>
+                                    <segue destination="EK4-7a-Yvx" kind="show" id="YUA-il-KAl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Budgeter!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJi-F4-wXh" userLabel="Welcome Label">
@@ -49,7 +50,9 @@
                             <constraint firstAttribute="trailing" secondItem="YkS-kZ-zvR" secondAttribute="trailing" id="OAO-Pg-lUb"/>
                             <constraint firstAttribute="bottom" secondItem="YkS-kZ-zvR" secondAttribute="bottom" id="Qym-dc-obm"/>
                             <constraint firstItem="LSd-CH-Spp" firstAttribute="centerX" secondItem="tNH-9B-oE7" secondAttribute="centerX" id="bCr-gf-cew"/>
-                            <constraint firstItem="LSd-CH-Spp" firstAttribute="centerX" secondItem="YkS-kZ-zvR" secondAttribute="centerX" id="cl5-3M-s8p"/>
+                            <constraint firstItem="LSd-CH-Spp" firstAttribute="centerX" secondItem="YkS-kZ-zvR" secondAttribute="centerX" id="cl5-3M-s8p">
+                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                            </constraint>
                             <constraint firstItem="YkS-kZ-zvR" firstAttribute="top" secondItem="tNH-9B-oE7" secondAttribute="top" id="ljQ-sw-wVo"/>
                             <constraint firstItem="LSd-CH-Spp" firstAttribute="top" secondItem="xJi-F4-wXh" secondAttribute="bottom" constant="50" id="nZE-hj-sO7">
                                 <variation key="heightClass=regular-widthClass=compact" constant="52"/>
@@ -58,7 +61,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="84"/>
                             </constraint>
                             <constraint firstItem="xJi-F4-wXh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="K5u-3h-ps1" secondAttribute="leading" id="xIn-ni-Ew5"/>
-                            <constraint firstItem="LSd-CH-Spp" firstAttribute="centerX" secondItem="xJi-F4-wXh" secondAttribute="centerX" id="xoX-I0-8fm"/>
+                            <constraint firstItem="LSd-CH-Spp" firstAttribute="centerX" secondItem="xJi-F4-wXh" secondAttribute="centerX" id="xoX-I0-8fm">
+                                <variation key="heightClass=regular-widthClass=compact" constant="4"/>
+                            </constraint>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K5u-3h-ps1"/>
                         <variation key="default">
@@ -89,6 +94,63 @@
             </objects>
             <point key="canvasLocation" x="1698.5507246376812" y="-15.401785714285714"/>
         </scene>
+        <!--Budget Set-->
+        <scene sceneID="lc0-Mc-CuG">
+            <objects>
+                <viewController id="EK4-7a-Yvx" userLabel="Budget Set" customClass="BudgetSet" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qpz-fk-Ghb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Your Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUR-f1-kyG" userLabel="BudgetSetLabel">
+                                <rect key="frame" x="20" y="199" width="374" height="107"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="107" id="FHM-K2-2u4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-Vg-Dzu" userLabel="BudgetSet">
+                                <rect key="frame" x="20" y="431" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="SYS-G9-gcK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr3-Mv-4Xi" userLabel="CurrencySelector">
+                                <rect key="frame" x="47" y="314" width="320" height="90"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TEV-Vg-Dzu" firstAttribute="leading" secondItem="Kr3-Mv-4Xi" secondAttribute="trailing" constant="-347" id="2vE-RT-eCZ"/>
+                            <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="top" secondItem="nUR-f1-kyG" secondAttribute="bottom" constant="8" id="C59-dS-gCZ"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="TEV-Vg-Dzu" secondAttribute="trailing" constant="20" id="Dc1-aG-0z7"/>
+                            <constraint firstItem="TEV-Vg-Dzu" firstAttribute="centerY" secondItem="Kr3-Mv-4Xi" secondAttribute="centerY" constant="89" id="FzY-b2-k6b"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="Kr3-Mv-4Xi" secondAttribute="trailing" constant="47" id="JIj-zX-L7G"/>
+                            <constraint firstItem="nUR-f1-kyG" firstAttribute="leading" secondItem="qpz-fk-Ghb" secondAttribute="leadingMargin" id="KGV-Fl-sOS"/>
+                            <constraint firstItem="TEV-Vg-Dzu" firstAttribute="centerY" secondItem="qpz-fk-Ghb" secondAttribute="centerY" id="LFE-BC-hny"/>
+                            <constraint firstItem="nUR-f1-kyG" firstAttribute="top" secondItem="zpU-om-whd" secondAttribute="top" constant="155" id="QT1-Dj-L0w"/>
+                            <constraint firstItem="nUR-f1-kyG" firstAttribute="trailing" secondItem="TEV-Vg-Dzu" secondAttribute="trailing" id="htO-ZQ-Rxe"/>
+                            <constraint firstItem="TEV-Vg-Dzu" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="icR-43-SKk"/>
+                            <constraint firstItem="nUR-f1-kyG" firstAttribute="trailing" secondItem="qpz-fk-Ghb" secondAttribute="trailingMargin" id="kUh-MH-1BV"/>
+                            <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="47" id="rkF-oW-Lxq"/>
+                            <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="top" secondItem="nUR-f1-kyG" secondAttribute="bottom" constant="8" id="w88-1I-996"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zpU-om-whd"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dXa-ap-aYx"/>
+                    <connections>
+                        <outlet property="budgetText" destination="TEV-Vg-Dzu" id="jIb-9t-SM7"/>
+                        <outlet property="pickerView" destination="Kr3-Mv-4Xi" id="vq7-fH-NX5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="szL-RS-pCH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2498.5507246376815" y="-15.401785714285714"/>
+        </scene>
         <!--Item 2-->
         <scene sceneID="aLm-4n-bk4">
             <objects>
@@ -103,7 +165,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3510" y="309"/>
+            <point key="canvasLocation" x="2925" y="777"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Rjl-Ma-70M">
@@ -119,7 +181,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNP-Y3-oHB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3509" y="-340"/>
+            <point key="canvasLocation" x="4275" y="777"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kzo-zN-7Fu">
@@ -138,7 +200,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2O-iO-gmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2587" y="-15"/>
+            <point key="canvasLocation" x="3517" y="-15"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rjw-GJ-TuS">
