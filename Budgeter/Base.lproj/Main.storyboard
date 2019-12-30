@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fvV-47-Phe">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment version="4640" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -112,28 +111,98 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-Vg-Dzu" userLabel="BudgetSet">
-                                <rect key="frame" x="20" y="431" width="374" height="34"/>
+                                <rect key="frame" x="20" y="418" width="374" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="SYS-G9-gcK"/>
+                                    <constraint firstAttribute="height" constant="60" id="y1v-Ry-NmT"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr3-Mv-4Xi" userLabel="CurrencySelector">
                                 <rect key="frame" x="47" y="314" width="320" height="90"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="EK4-7a-Yvx" id="Ik8-4s-vje"/>
+                                    <outlet property="delegate" destination="EK4-7a-Yvx" id="gxJ-Gr-F1W"/>
+                                </connections>
                             </pickerView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6g0-VR-vtw" userLabel="CurrencySymbol">
+                                <rect key="frame" x="47" y="841" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9H-uO-da9" userLabel="DeciderOutput">
+                                <rect key="frame" x="112" y="841" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is The Budget For A Month? (No Defaults To Weekly)" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mca-HF-lqP" userLabel="Monthly/WeeklyLabel">
+                                <rect key="frame" x="20" y="509" width="374" height="43"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jtD-Vx-p0b" userLabel="Decider">
+                                <rect key="frame" x="181" y="594" width="50" height="31"/>
+                                <connections>
+                                    <action selector="deciderUsed:" destination="EK4-7a-Yvx" eventType="valueChanged" id="Emk-p6-teg"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="No" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoT-A9-pXP">
+                                <rect key="frame" x="151" y="599" width="23" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Yes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXw-xb-Jhw">
+                                <rect key="frame" x="236" y="599" width="28" height="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-xx-vha">
+                                <rect key="frame" x="106" y="667" width="202" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Proceed To Home Page"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="EK4-7a-Yvx" eventType="touchUpInside" id="NuG-jX-IOY"/>
+                                    <segue destination="4v3-8k-Q42" kind="show" id="0gf-Fg-pkZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="TEV-Vg-Dzu" firstAttribute="leading" secondItem="Kr3-Mv-4Xi" secondAttribute="trailing" constant="-347" id="2vE-RT-eCZ"/>
+                            <constraint firstItem="g9H-uO-da9" firstAttribute="leading" secondItem="6g0-VR-vtw" secondAttribute="trailing" constant="23" id="3IM-6z-kgv"/>
+                            <constraint firstItem="mca-HF-lqP" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="4bk-8x-eyJ"/>
+                            <constraint firstItem="mca-HF-lqP" firstAttribute="top" secondItem="TEV-Vg-Dzu" secondAttribute="bottom" constant="31" id="96e-hs-ut8"/>
+                            <constraint firstItem="6g0-VR-vtw" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="47" id="AOk-I9-Pju"/>
                             <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="top" secondItem="nUR-f1-kyG" secondAttribute="bottom" constant="8" id="C59-dS-gCZ"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="TEV-Vg-Dzu" secondAttribute="trailing" constant="20" id="Dc1-aG-0z7"/>
                             <constraint firstItem="TEV-Vg-Dzu" firstAttribute="centerY" secondItem="Kr3-Mv-4Xi" secondAttribute="centerY" constant="89" id="FzY-b2-k6b"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="Kr3-Mv-4Xi" secondAttribute="trailing" constant="47" id="JIj-zX-L7G"/>
+                            <constraint firstItem="jtD-Vx-p0b" firstAttribute="leading" secondItem="VoT-A9-pXP" secondAttribute="trailing" constant="7" id="Jdh-p3-t35"/>
                             <constraint firstItem="nUR-f1-kyG" firstAttribute="leading" secondItem="qpz-fk-Ghb" secondAttribute="leadingMargin" id="KGV-Fl-sOS"/>
                             <constraint firstItem="TEV-Vg-Dzu" firstAttribute="centerY" secondItem="qpz-fk-Ghb" secondAttribute="centerY" id="LFE-BC-hny"/>
+                            <constraint firstItem="6g0-VR-vtw" firstAttribute="bottom" secondItem="zpU-om-whd" secondAttribute="bottom" id="LdX-M6-ITI"/>
+                            <constraint firstItem="VoT-A9-pXP" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="151" id="O8E-hq-DC0"/>
                             <constraint firstItem="nUR-f1-kyG" firstAttribute="top" secondItem="zpU-om-whd" secondAttribute="top" constant="155" id="QT1-Dj-L0w"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="QXw-xb-Jhw" secondAttribute="trailing" constant="150" id="RQT-Zy-W9n"/>
+                            <constraint firstItem="2Yu-xx-vha" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="106" id="TYn-RS-fWm"/>
+                            <constraint firstAttribute="bottom" secondItem="2Yu-xx-vha" secondAttribute="bottom" constant="193" id="TmI-eR-1bl"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="2Yu-xx-vha" secondAttribute="trailing" constant="106" id="WJF-CE-qk2"/>
+                            <constraint firstItem="QXw-xb-Jhw" firstAttribute="leading" secondItem="jtD-Vx-p0b" secondAttribute="trailing" constant="7" id="aNe-8B-yjl"/>
+                            <constraint firstItem="2Yu-xx-vha" firstAttribute="top" secondItem="jtD-Vx-p0b" secondAttribute="bottom" constant="42" id="bVq-DN-E63"/>
+                            <constraint firstItem="VoT-A9-pXP" firstAttribute="baseline" secondItem="QXw-xb-Jhw" secondAttribute="baseline" id="eMj-g8-H78"/>
+                            <constraint firstItem="VoT-A9-pXP" firstAttribute="centerY" secondItem="jtD-Vx-p0b" secondAttribute="centerY" id="fBh-ir-hn1"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="g9H-uO-da9" secondAttribute="trailing" symbolic="YES" id="fKX-fD-GiD"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6g0-VR-vtw" secondAttribute="trailing" symbolic="YES" id="fXF-d7-agi"/>
+                            <constraint firstItem="g9H-uO-da9" firstAttribute="baseline" secondItem="6g0-VR-vtw" secondAttribute="baseline" id="gi8-Ek-rZe"/>
                             <constraint firstItem="nUR-f1-kyG" firstAttribute="trailing" secondItem="TEV-Vg-Dzu" secondAttribute="trailing" id="htO-ZQ-Rxe"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="mca-HF-lqP" secondAttribute="trailing" constant="20" id="i1W-dJ-vuX"/>
                             <constraint firstItem="TEV-Vg-Dzu" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="icR-43-SKk"/>
                             <constraint firstItem="nUR-f1-kyG" firstAttribute="trailing" secondItem="qpz-fk-Ghb" secondAttribute="trailingMargin" id="kUh-MH-1BV"/>
                             <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="47" id="rkF-oW-Lxq"/>
@@ -144,6 +213,10 @@
                     <navigationItem key="navigationItem" id="dXa-ap-aYx"/>
                     <connections>
                         <outlet property="budgetText" destination="TEV-Vg-Dzu" id="jIb-9t-SM7"/>
+                        <outlet property="currencySymbol" destination="6g0-VR-vtw" id="ZPO-34-s5H"/>
+                        <outlet property="decider" destination="jtD-Vx-p0b" id="LwF-z3-3hb"/>
+                        <outlet property="deciderOutput" destination="g9H-uO-da9" id="z9W-ic-Zcc"/>
+                        <outlet property="homeButton" destination="2Yu-xx-vha" id="XF2-e8-aG0"/>
                         <outlet property="pickerView" destination="Kr3-Mv-4Xi" id="vq7-fH-NX5"/>
                     </connections>
                 </viewController>
@@ -151,7 +224,7 @@
             </objects>
             <point key="canvasLocation" x="2498.5507246376815" y="-15.401785714285714"/>
         </scene>
-        <!--Item 2-->
+        <!--Budget-->
         <scene sceneID="aLm-4n-bk4">
             <objects>
                 <viewController id="je1-fX-CiD" sceneMemberID="viewController">
@@ -161,13 +234,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="12K-mc-i0N"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Un2-VG-nS7"/>
+                    <tabBarItem key="tabBarItem" title="Budget" image="BudgetIcons" id="Un2-VG-nS7"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2925" y="777"/>
         </scene>
-        <!--Item 1-->
+        <!--Transactions-->
         <scene sceneID="Rjl-Ma-70M">
             <objects>
                 <viewController id="y9p-WR-TX6" sceneMemberID="viewController">
@@ -177,16 +250,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Lw8-K7-O8H"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="1sg-SL-4A8"/>
+                    <tabBarItem key="tabBarItem" title="Transactions" image="BudgetIcons" id="1sg-SL-4A8"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNP-Y3-oHB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4275" y="777"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Home Page-->
         <scene sceneID="kzo-zN-7Fu">
             <objects>
-                <tabBarController id="4v3-8k-Q42" sceneMemberID="viewController">
+                <tabBarController id="4v3-8k-Q42" customClass="Home_Page" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mLM-xZ-qDv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0nI-pN-xLN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -194,8 +267,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="y9p-WR-TX6" kind="relationship" relationship="viewControllers" id="Llb-s7-PzM"/>
-                        <segue destination="je1-fX-CiD" kind="relationship" relationship="viewControllers" id="dPd-hR-abu"/>
+                        <segue destination="je1-fX-CiD" kind="relationship" relationship="viewControllers" id="prF-Ou-9Nx"/>
+                        <segue destination="y9p-WR-TX6" kind="relationship" relationship="viewControllers" id="6zb-Xx-Brl"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2O-iO-gmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -221,6 +294,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="BudgetIcons" width="33.333332061767578" height="33.333332061767578"/>
         <image name="Gradient" width="414" height="896"/>
     </resources>
 </document>

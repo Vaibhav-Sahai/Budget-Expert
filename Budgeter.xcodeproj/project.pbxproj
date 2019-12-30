@@ -16,7 +16,7 @@
 		80AC9FE423A4CE2E0056F579 /* BudgeterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FE323A4CE2E0056F579 /* BudgeterTests.swift */; };
 		80AC9FEF23A4CE2E0056F579 /* BudgeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FEE23A4CE2E0056F579 /* BudgeterUITests.swift */; };
 		80CF0C1823A8DF7200D0F9F7 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CF0C1723A8DF7200D0F9F7 /* WelcomePage.swift */; };
-		80CF0C1B23A8E32E00D0F9F7 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CF0C1A23A8E32E00D0F9F7 /* HomePage.swift */; };
+		80F293F423BA459F00881DBE /* Home Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F293F323BA459F00881DBE /* Home Page.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +52,7 @@
 		80AC9FEE23A4CE2E0056F579 /* BudgeterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgeterUITests.swift; sourceTree = "<group>"; };
 		80AC9FF023A4CE2E0056F579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80CF0C1723A8DF7200D0F9F7 /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
-		80CF0C1A23A8E32E00D0F9F7 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		80F293F323BA459F00881DBE /* Home Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home Page.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +137,7 @@
 				80AC9FCE23A4CE2D0056F579 /* SceneDelegate.swift */,
 				80CF0C1723A8DF7200D0F9F7 /* WelcomePage.swift */,
 				8008FA7223B73BB600D08570 /* BudgetSet.swift */,
-				80CF0C1A23A8E32E00D0F9F7 /* HomePage.swift */,
+				80F293F323BA459F00881DBE /* Home Page.swift */,
 			);
 			path = SwiftFiles;
 			sourceTree = "<group>";
@@ -277,7 +277,7 @@
 				8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */,
 				80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */,
 				80AC9FCF23A4CE2D0056F579 /* SceneDelegate.swift in Sources */,
-				80CF0C1B23A8E32E00D0F9F7 /* HomePage.swift in Sources */,
+				80F293F423BA459F00881DBE /* Home Page.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

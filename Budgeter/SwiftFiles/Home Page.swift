@@ -1,14 +1,14 @@
 //
-//  HomePage.swift
+//  Home Page.swift
 //  Budgeter
 //
-//  Created by Vaibhav Sahai on 17/12/2019.
+//  Created by Vaibhav Sahai on 30/12/2019.
 //  Copyright © 2019 Vaibhav Sahai. All rights reserved.
 //
 
 import UIKit
 
-class HomePage: UIViewController {
+class Home_Page: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
