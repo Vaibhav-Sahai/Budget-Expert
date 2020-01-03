@@ -9,14 +9,13 @@
 import UIKit
 
 class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
-
-    @IBOutlet weak var errorLabel: UILabel!
     
     @IBOutlet weak var decider: UISwitch!
-    @IBOutlet weak var monthlyPicker: UIPickerView!
     @IBOutlet weak var deciderOutput: UILabel!
     @IBOutlet weak var homeButton: UIButton!
     @IBAction func homeButtonPressed(_ sender: Any) {
+        if deciderOutput.text != ""{
+            performSegue(withIdentifier: "segue", sender: self)}
     }
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -27,10 +26,10 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     @IBAction func deciderUsed(_ sender: UISwitch) {
         if (sender.isOn == true){
-            deciderOutput.text = "Monthly"
+            deciderOutput.text = "Monthly Budget"
         }
         else{
-            deciderOutput.text = "Weekly"
+            deciderOutput.text = "Weekly Budget"
         }
     }
     //MARK: - Picker View Configuration
@@ -73,16 +72,18 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         
         return allowedCharacterSet.isSuperset(of: typedCharacterSet)
     }
+    //MARK: - Transition
+    @IBAction func unwindFromNextVC(unwindSegue: UIStoryboardSegue){}
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
+    //MARK: - Passing Data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let mainTabBarController = segue.destination as? MainTabBar{
+            mainTabBarController.budget = deciderOutput.text
+            mainTabBarController.currency = currencySymbol.text
+            mainTabBarController.currentbalance = budgetText.text
+        }
     }
-    */
+
 
 }

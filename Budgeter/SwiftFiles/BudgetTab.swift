@@ -1,5 +1,5 @@
 //
-//  Home Page.swift
+//  BudgetTab.swift
 //  Budgeter
 //
 //  Created by Vaibhav Sahai on 30/12/2019.
@@ -8,14 +8,22 @@
 
 import UIKit
 
-class Home_Page: UITabBarController {
-
+class BudgetTab: UIViewController {
+    
+    var budget: String?
+    var currency: String?
+    var currentbalance: String?
+    
+    @IBOutlet weak var budgetType: UILabel!
+    @IBOutlet weak var currencySymbol: UILabel!
+    @IBOutlet weak var balance: UILabel!
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        budgetType.text = budget
+        currencySymbol.text = currency
+        balance.text = currentbalance
     }
-    
 
     /*
     // MARK: - Navigation
