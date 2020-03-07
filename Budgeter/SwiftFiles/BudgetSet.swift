@@ -14,13 +14,13 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     @IBOutlet weak var deciderOutput: UILabel!
     @IBOutlet weak var homeButton: UIButton!
     @IBAction func homeButtonPressed(_ sender: Any) {
-        if deciderOutput.text != ""{
-            performSegue(withIdentifier: "segue", sender: self)}
+        performSegue(withIdentifier: "segue", sender: self)
     }
     
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var budgetText: UITextField!
     @IBOutlet weak var currencySymbol: UILabel!
+    @IBOutlet weak var days: UITextField!
     
     //MARK: - Decider
     
@@ -79,7 +79,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     //MARK: - Passing Data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mainTabBarController = segue.destination as? MainTabBar{
-            mainTabBarController.budget = deciderOutput.text
+            mainTabBarController.budget = days.text
             mainTabBarController.currency = currencySymbol.text
             mainTabBarController.currentbalance = budgetText.text
         }
