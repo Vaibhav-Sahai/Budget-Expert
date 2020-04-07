@@ -1,0 +1,6 @@
+framework module Pods_Budgeter {
+  umbrella header "Pods-Budgeter-umbrella.h"
+
+  export *
+  module * { export * }
+}
