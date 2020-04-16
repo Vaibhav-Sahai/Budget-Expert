@@ -3,12 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7DF023ED93FC8EEA2A9CBE4F /* Pods_Budgeter_BudgeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFA1867F80F796FB6C58B3 /* Pods_Budgeter_BudgeterUITests.framework */; };
 		8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008FA7223B73BB600D08570 /* BudgetSet.swift */; };
+		80281DA52448F0AD00269AB8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80281DA42448F0AD00269AB8 /* PopUpViewController.swift */; };
 		8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */; };
 		806BC7C223BFB7D900AED0AD /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BC7C123BFB7D900AED0AD /* MainTabBar.swift */; };
 		80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FCC23A4CE2D0056F579 /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		5F7A9BBAE30A7536CB87C600 /* Pods-BudgeterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgeterTests.debug.xcconfig"; path = "Target Support Files/Pods-BudgeterTests/Pods-BudgeterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		70AA2EC1B4E359E05389C1A1 /* Pods_BudgeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudgeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8008FA7223B73BB600D08570 /* BudgetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSet.swift; sourceTree = "<group>"; };
+		80281DA42448F0AD00269AB8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTab.swift; sourceTree = "<group>"; };
 		806BC7C123BFB7D900AED0AD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		80AC9FC923A4CE2D0056F579 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +109,6 @@
 				5F7A9BBAE30A7536CB87C600 /* Pods-BudgeterTests.debug.xcconfig */,
 				D3BFFC0649E1D5714CA1D052 /* Pods-BudgeterTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -172,6 +173,7 @@
 				8008FA7223B73BB600D08570 /* BudgetSet.swift */,
 				806BC7C123BFB7D900AED0AD /* MainTabBar.swift */,
 				8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */,
+				80281DA42448F0AD00269AB8 /* PopUpViewController.swift */,
 			);
 			path = SwiftFiles;
 			sourceTree = "<group>";
@@ -427,6 +429,7 @@
 			files = (
 				806BC7C223BFB7D900AED0AD /* MainTabBar.swift in Sources */,
 				80CF0C1823A8DF7200D0F9F7 /* WelcomePage.swift in Sources */,
+				80281DA52448F0AD00269AB8 /* PopUpViewController.swift in Sources */,
 				8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */,
 				80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */,
 				8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */,
@@ -607,6 +610,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WGG5L2MMES;
 				INFOPLIST_FILE = Budgeter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,6 +630,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WGG5L2MMES;
 				INFOPLIST_FILE = Budgeter/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

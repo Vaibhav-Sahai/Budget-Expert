@@ -115,15 +115,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-xx-vha">
-                                <rect key="frame" x="106" y="547" width="202" height="118"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Proceed To Home Page"/>
-                                <connections>
-                                    <action selector="homeButtonPressed:" destination="EK4-7a-Yvx" eventType="touchUpInside" id="NuG-jX-IOY"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Enter Number Of Days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mca-HF-lqP" userLabel="DaysLabel">
                                 <rect key="frame" x="20" y="408" width="374" height="29"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
@@ -164,6 +155,15 @@
                                     <outlet property="delegate" destination="EK4-7a-Yvx" id="gxJ-Gr-F1W"/>
                                 </connections>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-xx-vha">
+                                <rect key="frame" x="78" y="713" width="258" height="36"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Proceed To Home Page"/>
+                                <connections>
+                                    <action selector="homeButtonPressed:" destination="EK4-7a-Yvx" eventType="touchUpInside" id="NuG-jX-IOY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -172,6 +172,9 @@
                             <constraint firstItem="ayt-ll-UeI" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="4XA-AP-QrD"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="ayt-ll-UeI" secondAttribute="trailing" constant="20" id="6fc-fc-crt"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="TEV-Vg-Dzu" secondAttribute="trailing" constant="20" id="9R6-MG-gIN"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="2Yu-xx-vha" secondAttribute="trailing" constant="106" id="E9h-ks-ZHT">
+                                <variation key="heightClass=regular-widthClass=compact" constant="78"/>
+                            </constraint>
                             <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="top" secondItem="qpz-fk-Ghb" secondAttribute="top" constant="174" id="EH3-ts-Mi9"/>
                             <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="top" secondItem="nUR-f1-kyG" secondAttribute="bottom" constant="25.670000000000002" id="ELR-MQ-Nik"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="2Yu-xx-vha" secondAttribute="trailing" constant="106" id="NuR-k5-CfJ"/>
@@ -179,8 +182,14 @@
                             <constraint firstItem="ayt-ll-UeI" firstAttribute="top" secondItem="mca-HF-lqP" secondAttribute="bottom" constant="24" id="QDR-jd-vlZ"/>
                             <constraint firstItem="6g0-VR-vtw" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="Urc-vr-OhC"/>
                             <constraint firstItem="2Yu-xx-vha" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="106" id="VLE-YW-J2d"/>
+                            <constraint firstItem="zpU-om-whd" firstAttribute="bottom" secondItem="2Yu-xx-vha" secondAttribute="bottom" constant="96" id="WTh-2D-1c3">
+                                <variation key="heightClass=regular-widthClass=compact" constant="113"/>
+                            </constraint>
                             <constraint firstItem="TEV-Vg-Dzu" firstAttribute="top" secondItem="nUR-f1-kyG" secondAttribute="bottom" constant="174.66999999999999" id="WeX-Ws-xP0"/>
                             <constraint firstItem="mca-HF-lqP" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="dnY-ho-iCY"/>
+                            <constraint firstItem="2Yu-xx-vha" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="106" id="iGo-5a-Yc2">
+                                <variation key="heightClass=regular-widthClass=compact" constant="78"/>
+                            </constraint>
                             <constraint firstItem="2Yu-xx-vha" firstAttribute="top" secondItem="ayt-ll-UeI" secondAttribute="bottom" constant="26" id="lhA-eu-oDo"/>
                             <constraint firstItem="TEV-Vg-Dzu" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="nZT-Y8-P3Z"/>
                             <constraint firstItem="nUR-f1-kyG" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="51" id="o3r-x0-J90"/>
@@ -192,16 +201,26 @@
                         <viewLayoutGuide key="safeArea" id="zpU-om-whd"/>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="E9h-ks-ZHT"/>
+                                <exclude reference="WTh-2D-1c3"/>
                                 <exclude reference="109-Xx-DUh"/>
                                 <exclude reference="EH3-ts-Mi9"/>
                                 <exclude reference="ELR-MQ-Nik"/>
+                                <exclude reference="iGo-5a-Yc2"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
+                                <include reference="E9h-ks-ZHT"/>
+                                <exclude reference="NuR-k5-CfJ"/>
+                                <include reference="WTh-2D-1c3"/>
+                                <exclude reference="rFk-FZ-QZK"/>
                                 <include reference="109-Xx-DUh"/>
                                 <include reference="EH3-ts-Mi9"/>
                                 <include reference="ELR-MQ-Nik"/>
+                                <exclude reference="VLE-YW-J2d"/>
+                                <include reference="iGo-5a-Yc2"/>
+                                <exclude reference="lhA-eu-oDo"/>
                             </mask>
                         </variation>
                     </view>
@@ -217,7 +236,57 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szL-RS-pCH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2497.1014492753625" y="-16.304347826086957"/>
+            <point key="canvasLocation" x="2496.8000000000002" y="-16.995073891625616"/>
+        </scene>
+        <!--Popup -->
+        <scene sceneID="bsZ-fF-D4H">
+            <objects>
+                <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDe-p6-Xnl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15U-HJ-V2T">
+                                <rect key="frame" x="11" y="274" width="392" height="350"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount Spent" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDC-cE-ljY">
+                                        <rect key="frame" x="39" y="158" width="314" height="34"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-M0-8Eg">
+                                        <rect key="frame" x="178" y="227" width="37" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="transactionDonePressed:" destination="O3M-kS-2ua" eventType="touchUpInside" id="a2P-R4-caT"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evX-8V-iAZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="392" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                        <color key="textColor" red="0.96078431369999995" green="0.94901960780000005" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.35179366637984244" green="0.85363781075057243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.71920372685876388" green="0.7263245558375635" blue="0.7263245558375635" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="bWn-HB-Kkj"/>
+                    </view>
+                    <connections>
+                        <outlet property="amountEntered" destination="cDC-cE-ljY" id="gpa-oN-ebe"/>
+                        <outlet property="transactionDone" destination="rnR-M0-8Eg" id="3VY-v8-Tck"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IBw-mB-nqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1932" y="776"/>
         </scene>
         <!--Budget-->
         <scene sceneID="aLm-4n-bk4">
@@ -278,6 +347,15 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px2-EY-nfS" userLabel="popupInitiater">
+                                <rect key="frame" x="341" y="42" width="45" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="+"/>
+                                <connections>
+                                    <segue destination="O3M-kS-2ua" kind="presentation" id="bby-LO-XWr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -358,12 +436,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="r2T-2p-PSf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2924" y="776.60098522167493"/>
+            <point key="canvasLocation" x="2921.739130434783" y="776.11607142857144"/>
         </scene>
-        <!--Transactions-->
+        <!--Payment-->
         <scene sceneID="Rjl-Ma-70M">
             <objects>
-                <viewController id="y9p-WR-TX6" sceneMemberID="viewController">
+                <viewController title="Payment" id="y9p-WR-TX6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gNJ-DP-gDW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
