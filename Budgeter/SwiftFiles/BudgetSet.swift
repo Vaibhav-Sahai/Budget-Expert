@@ -22,16 +22,6 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     @IBOutlet weak var currencySymbol: UILabel!
     @IBOutlet weak var days: UITextField!
     
-    //MARK: - Decider
-    
-    @IBAction func deciderUsed(_ sender: UISwitch) {
-        if (sender.isOn == true){
-            deciderOutput.text = "Monthly Budget"
-        }
-        else{
-            deciderOutput.text = "Weekly Budget"
-        }
-    }
     //MARK: - Picker View Configuration
     let currency = ["S/.", "$", "R$", "৳", "¥", "₹","€", "£","AED"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -54,6 +44,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
 
         // Do any additional setup after loading the view.
         budgetText.delegate = self
+        days.delegate = self
     }
     //MARK: - Hide Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,6 +52,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         budgetText.resignFirstResponder()
+        days.resignFirstResponder()
         return(true)
     }
     
