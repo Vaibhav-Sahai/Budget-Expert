@@ -23,15 +23,14 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     //MARK:- Checking Fields
     
-    func validateFields() -> String?{
+    func validateFields(){
         if budgetText.text?.trimmingCharacters(in:  .whitespacesAndNewlines) == "" ||
             currencySymbol.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             days.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             errorLabel.alpha = 1
-            return "Fields Empty"
+            
         }else{
             performSegue(withIdentifier: "segue", sender: self)
-            return "Success"
         }
     }
 
@@ -69,7 +68,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         return(true)
     }
     
-    // MARK: - TextField Delegate
+    // MARK: - Allowed Characters
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let allowedCharacters = "1234567890"
         let allowedCharacterSet = CharacterSet(charactersIn: allowedCharacters)

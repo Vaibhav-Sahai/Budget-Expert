@@ -8,12 +8,7 @@
 
 import UIKit
 
-protocol dropDownProtocol{
-    func dropDownPressed(string : String)
-}
-
-
-class PopUpViewController: UIViewController {
+class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
     @IBOutlet weak var itemEntered: UITextField!
     var button = dropDownBtn()
@@ -21,6 +16,8 @@ class PopUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.amountEntered.delegate = self
+        self.itemEntered.delegate = self
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -41,87 +38,87 @@ class PopUpViewController: UIViewController {
         
         dismiss(animated: true)
     }
+    //MARK:- Hide Keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+        self.button.endEditing(true)
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        amountEntered.resignFirstResponder()
+        itemEntered.resignFirstResponder()
+        return(true)
+    }
     
-    //MARK:- Dropdown Stuff
+}
+//MARK:- Dropdown Stuff
+ 
+protocol dropDownProtocol{
+    func dropDownPressed(string : String)
+}
+
+class dropDownBtn: UIButton, dropDownProtocol{
+        
+    func dropDownPressed(string: String) {
+        // Fix from here onwards
+        self.setTitle(string, for: .normal)
+        self.dismissDropDown()
+    }
     
-    class dropDownBtn: UIButton, dropDownProtocol{
+    var dropView = dropDownView()
+    
+    var height = NSLayoutConstraint()
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
-        func dropDownPressed(string: String) {
-            // Fix from here onwards
-            self.setTitle(string, for: .normal)
-            self.dismissDropDown()
-        }
+        self.backgroundColor = UIColor.black
         
-        var dropView = dropDownView()
+        dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        dropView.delegate = self
+        dropView.translatesAutoresizingMaskIntoConstraints = false
         
-        var height = NSLayoutConstraint()
+    }
+    
+    override func didMoveToSuperview() {
         
+        self.addSubview(dropView)
+        self.superview?.addSubview(dropView)
+        self.superview?.bringSubviewToFront(dropView)
         
-        override init(frame: CGRect) {
-            super.init(frame: frame)
+        dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+        dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
+        height = dropView.heightAnchor.constraint(equalToConstant: 0)
+    }
+    
+    var isOpen = false
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isOpen == false{
             
-            self.backgroundColor = UIColor.black
+            isOpen = true
             
-            dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
-            dropView.delegate = self
-            dropView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.deactivate([self.height])
             
-        }
-        
-        override func didMoveToSuperview() {
-            
-            self.addSubview(dropView)
-            self.superview?.addSubview(dropView)
-            self.superview?.bringSubviewToFront(dropView)
-            
-            dropView.topAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-            dropView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-            dropView.widthAnchor.constraint(equalTo: self.widthAnchor).isActive = true
-            height = dropView.heightAnchor.constraint(equalToConstant: 0)
-        }
-        
-        var isOpen = false
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            if isOpen == false{
+            if self.dropView.tableView.contentSize.height > 150{
+                self.height.constant = 150
                 
-                isOpen = true
-                
-                NSLayoutConstraint.deactivate([self.height])
-                
-                if self.dropView.tableView.contentSize.height > 150{
-                    self.height.constant = 150
-                    
-                }else{
-                    self.height.constant = self.dropView.tableView.contentSize.height
-                }
-                
-                
-                NSLayoutConstraint.activate([self.height])
-                
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                    self.dropView.layoutIfNeeded()
-                    self.dropView.center.y += self.dropView.frame.height / 2
-                }, completion: nil)
-                
-                
-            } else {
-                isOpen = false
-                
-                NSLayoutConstraint.deactivate([self.height])
-                self.height.constant = 0
-                NSLayoutConstraint.activate([self.height])
-                
-                UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
-                    self.dropView.center.y -= self.dropView.frame.height / 2
-                    self.dropView.layoutIfNeeded()
-                }, completion: nil)
-                
+            }else{
+                self.height.constant = self.dropView.tableView.contentSize.height
             }
             
-        }
-        
-        func dismissDropDown(){
+            
+            NSLayoutConstraint.activate([self.height])
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+                self.dropView.layoutIfNeeded()
+                self.dropView.center.y += self.dropView.frame.height / 2
+            }, completion: nil)
+            
+            
+        } else {
             isOpen = false
+            
             NSLayoutConstraint.deactivate([self.height])
             self.height.constant = 0
             NSLayoutConstraint.activate([self.height])
@@ -133,88 +130,104 @@ class PopUpViewController: UIViewController {
             
         }
         
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
+    }
+    
+    func dismissDropDown(){
+        isOpen = false
+        NSLayoutConstraint.deactivate([self.height])
+        self.height.constant = 0
+        NSLayoutConstraint.activate([self.height])
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.dropView.center.y -= self.dropView.frame.height / 2
+            self.dropView.layoutIfNeeded()
+        }, completion: nil)
         
     }
     
-    class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
-        
-        var dropDownOptions = [String]()
-        var tableView = UITableView()
-        var delegate : dropDownProtocol!
-        
-        
-        override init(frame: CGRect) {
-            super.init(frame: frame)
-            
-            tableView.backgroundColor = UIColor.black
-            self.backgroundColor = UIColor.black
-            
-            tableView.delegate = self
-            tableView.dataSource = self
-            
-            tableView.translatesAutoresizingMaskIntoConstraints = false
-            
-            self.addSubview(tableView)
-            
-            tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-            tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-            tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-            tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-            
-        }
-        
-        required init?(coder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-        
-        
-        func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
-        }
-        
-        func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return dropDownOptions.count
-        }
-        
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = UITableViewCell()
-            
-            cell.textLabel?.text = dropDownOptions[indexPath.row]
-            cell.backgroundColor = UIColor.white
-            return cell
-        
-        }
-        
-        func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
-            self.tableView.deselectRow(at: indexPath, animated: true)
-            
-        }
-        
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
+    
+    var dropDownOptions = [String]()
+    var tableView = UITableView()
+    var delegate : dropDownProtocol!
+    
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        tableView.backgroundColor = UIColor.black
+        self.backgroundColor = UIColor.black
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addSubview(tableView)
+        
+        tableView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return dropDownOptions.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        
+        cell.textLabel?.text = dropDownOptions[indexPath.row]
+        cell.backgroundColor = UIColor.white
+        return cell
+    
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.delegate.dropDownPressed(string: dropDownOptions[indexPath.row])
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// MARK: - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    // Get the new view controller using segue.destination.
+    // Pass the selected object to the new view controller.
+}
+*/
+
+
