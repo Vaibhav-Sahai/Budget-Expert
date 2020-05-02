@@ -4,24 +4,37 @@
 //
 //  Created by Vaibhav Sahai on 28/12/2019.
 //  Copyright © 2019 Vaibhav Sahai. All rights reserved.
-//
+// performSegue(withIdentifier: "segue", sender: self)
 
 import UIKit
 
 class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var decider: UISwitch!
-    @IBOutlet weak var deciderOutput: UILabel!
     @IBOutlet weak var homeButton: UIButton!
     @IBAction func homeButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "segue", sender: self)
-    }
-    
+        validateFields()
+        }
+
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var budgetText: UITextField!
     @IBOutlet weak var currencySymbol: UILabel!
     @IBOutlet weak var days: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     
+    //MARK:- Checking Fields
+    
+    func validateFields() -> String?{
+        if budgetText.text?.trimmingCharacters(in:  .whitespacesAndNewlines) == "" ||
+            currencySymbol.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            days.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            errorLabel.alpha = 1
+            return "Fields Empty"
+        }else{
+            performSegue(withIdentifier: "segue", sender: self)
+            return "Success"
+        }
+    }
+
     //MARK: - Picker View Configuration
     let currency = ["S/.", "$", "R$", "৳", "¥", "₹","€", "£","AED"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -41,8 +54,8 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        errorLabel.alpha = 0
         budgetText.delegate = self
         days.delegate = self
     }

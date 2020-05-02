@@ -33,7 +33,7 @@ class PopUpViewController: UIViewController {
         button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
         button.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        button.widthAnchor.constraint(equalToConstant: 314).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
         button.dropView.dropDownOptions = ["Essentials","Luxury","Misc"]
         
@@ -72,6 +72,7 @@ class PopUpViewController: UIViewController {
         
         override func didMoveToSuperview() {
             
+            self.addSubview(dropView)
             self.superview?.addSubview(dropView)
             self.superview?.bringSubviewToFront(dropView)
             
