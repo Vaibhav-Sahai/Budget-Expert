@@ -292,13 +292,6 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Tv-Rz-F86">
-                                        <rect key="frame" x="39" y="128" width="314" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35179366637984244" green="0.85363781075057243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -307,9 +300,8 @@
                         <viewLayoutGuide key="safeArea" id="bWn-HB-Kkj"/>
                     </view>
                     <connections>
-                        <outlet property="amountEntered" destination="cDC-cE-ljY" id="gpa-oN-ebe"/>
-                        <outlet property="transactionDone" destination="rnR-M0-8Eg" id="3VY-v8-Tck"/>
-                        <outlet property="transactionType" destination="8Tv-Rz-F86" id="166-Bk-fgt"/>
+                        <outlet property="amountEntered" destination="cDC-cE-ljY" id="oJj-MV-VnJ"/>
+                        <outlet property="itemEntered" destination="YRs-yC-QYI" id="uiH-cx-fFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBw-mB-nqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

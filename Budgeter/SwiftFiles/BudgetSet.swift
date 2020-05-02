@@ -12,7 +12,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     @IBOutlet weak var homeButton: UIButton!
     @IBAction func homeButtonPressed(_ sender: Any) {
-        validateFields()
+        performSegue(withIdentifier: "segue", sender: self)
         }
 
     @IBOutlet weak var pickerView: UIPickerView!

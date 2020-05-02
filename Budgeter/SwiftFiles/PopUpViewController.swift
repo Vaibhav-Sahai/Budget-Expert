@@ -15,9 +15,7 @@ protocol dropDownProtocol{
 
 class PopUpViewController: UIViewController {
     @IBOutlet weak var amountEntered: UITextField!
-    @IBOutlet weak var transactionDone: UIButton!
-    @IBOutlet weak var transactionType: UILabel!
-    
+    @IBOutlet weak var itemEntered: UITextField!
     var button = dropDownBtn()
     
     override func viewDidLoad() {
@@ -32,8 +30,8 @@ class PopUpViewController: UIViewController {
         button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
-        button.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        button.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 314).isActive = true
+        button.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
         button.dropView.dropDownOptions = ["Essentials","Luxury","Misc"]
         
@@ -182,7 +180,7 @@ class PopUpViewController: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            var cell = UITableViewCell()
+            let cell = UITableViewCell()
             
             cell.textLabel?.text = dropDownOptions[indexPath.row]
             cell.backgroundColor = UIColor.darkGray
