@@ -10,14 +10,17 @@ import UIKit
 
 class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var itemEntered: UITextField!
     var button = dropDownBtn()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        errorLabel.alpha = 0
         self.amountEntered.delegate = self
         self.itemEntered.delegate = self
+       
+        
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -33,11 +36,35 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         button.dropView.dropDownOptions = ["Essentials","Luxury","Misc"]
         
     }
-    //MARK:- Return to budget page
+    //MARK:- Validation Check
+    func validateFields()-> String{
+        if amountEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            itemEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            return "Fail"
+
+        } else{
+            return "Success"
+        }
+            
+    }
+    
+    //MARK:- Transfer Data
     @IBAction func transactionDonePressed(_ sender: Any) {
+        if validateFields() == "Success"{
+            NotificationCenter.default.post(name: .saveAmountEntered, object: self)
+            dismiss(animated: true)
+        } else{
+            errorLabel.alpha = 1
+        }
+    }
+    
+    //MARK:- Transaction Cancelled
+    @IBAction func transactionCancelled(_ sender: Any) {
         
         dismiss(animated: true)
     }
+    
+    
     //MARK:- Hide Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)

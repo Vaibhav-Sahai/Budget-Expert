@@ -167,7 +167,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Fill All Fields" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPT-XH-z6c" userLabel="Error Label">
-                                <rect key="frame" x="130" y="566" width="154" height="21"/>
+                                <rect key="frame" x="132.66666666666666" y="566" width="148.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -178,7 +178,6 @@
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="nUR-f1-kyG" secondAttribute="trailing" constant="30" id="0Rp-qz-mLi"/>
                             <constraint firstItem="Kr3-Mv-4Xi" firstAttribute="centerX" secondItem="TEV-Vg-Dzu" secondAttribute="centerX" id="109-Xx-DUh"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6g0-VR-vtw" secondAttribute="trailing" symbolic="YES" id="1Ec-V4-mch"/>
-                            <constraint firstItem="iPT-XH-z6c" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="130" id="1rZ-YT-Tyf"/>
                             <constraint firstItem="ayt-ll-UeI" firstAttribute="leading" secondItem="zpU-om-whd" secondAttribute="leading" constant="20" id="4XA-AP-QrD"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="ayt-ll-UeI" secondAttribute="trailing" constant="20" id="6fc-fc-crt"/>
                             <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="TEV-Vg-Dzu" secondAttribute="trailing" constant="20" id="9R6-MG-gIN"/>
@@ -208,7 +207,6 @@
                             <constraint firstItem="zpU-om-whd" firstAttribute="bottom" secondItem="2Yu-xx-vha" secondAttribute="bottom" constant="197" id="rFk-FZ-QZK"/>
                             <constraint firstItem="nUR-f1-kyG" firstAttribute="top" secondItem="zpU-om-whd" secondAttribute="top" constant="58" id="x6N-Hj-NQP"/>
                             <constraint firstItem="mca-HF-lqP" firstAttribute="top" secondItem="TEV-Vg-Dzu" secondAttribute="bottom" constant="25" id="yhI-K7-ALu"/>
-                            <constraint firstItem="zpU-om-whd" firstAttribute="trailing" secondItem="iPT-XH-z6c" secondAttribute="trailing" constant="130" id="zYW-dw-EyP"/>
                             <constraint firstItem="6g0-VR-vtw" firstAttribute="bottom" secondItem="zpU-om-whd" secondAttribute="bottom" id="zha-hd-S66"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zpU-om-whd"/>
@@ -264,14 +262,6 @@
                                 <rect key="frame" x="11" y="230" width="392" height="276"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-M0-8Eg">
-                                        <rect key="frame" x="177.66666666666666" y="227" width="37" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Done"/>
-                                        <connections>
-                                            <action selector="transactionDonePressed:" destination="O3M-kS-2ua" eventType="touchUpInside" id="a2P-R4-caT"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evX-8V-iAZ" userLabel="TransactionLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="61"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -290,8 +280,31 @@
                                         <rect key="frame" x="39" y="164" width="314" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDR-4Q-5Gy">
+                                        <rect key="frame" x="38" y="227" width="48" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="transactionCancelled:" destination="O3M-kS-2ua" eventType="touchUpInside" id="PMP-8n-nj3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-M0-8Eg">
+                                        <rect key="frame" x="316" y="227" width="37" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="transactionDonePressed:" destination="O3M-kS-2ua" eventType="touchUpInside" id="a2P-R4-caT"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please Fill All Fields" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njo-9Z-ece" userLabel="Error Label">
+                                        <rect key="frame" x="116" y="232" width="160" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35179366637984244" green="0.85363781075057243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -301,6 +314,7 @@
                     </view>
                     <connections>
                         <outlet property="amountEntered" destination="cDC-cE-ljY" id="oJj-MV-VnJ"/>
+                        <outlet property="errorLabel" destination="njo-9Z-ece" id="wdo-GO-eWw"/>
                         <outlet property="itemEntered" destination="YRs-yC-QYI" id="uiH-cx-fFG"/>
                     </connections>
                 </viewController>
@@ -373,7 +387,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="O3M-kS-2ua" kind="presentation" id="bby-LO-XWr"/>
+                                    <segue destination="O3M-kS-2ua" kind="presentation" identifier="" id="bby-LO-XWr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -441,6 +455,7 @@
                     <tabBarItem key="tabBarItem" title="Budget" image="BudgetIcons" id="Un2-VG-nS7">
                         <inset key="imageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="o7R-sI-MCl"/>
                     <connections>
                         <outlet property="balance" destination="v5G-Bm-E5x" id="DZT-8S-F1u"/>
                         <outlet property="budgetType" destination="Jhw-N6-qZj" id="6Rh-xs-K7w"/>
