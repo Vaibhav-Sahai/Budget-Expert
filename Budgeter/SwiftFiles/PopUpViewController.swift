@@ -60,7 +60,7 @@ class PopUpViewController: UIViewController {
         override init(frame: CGRect) {
             super.init(frame: frame)
             
-            self.backgroundColor = UIColor.darkGray
+            self.backgroundColor = UIColor.black
             
             dropView = dropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
             dropView.delegate = self
@@ -149,8 +149,8 @@ class PopUpViewController: UIViewController {
         override init(frame: CGRect) {
             super.init(frame: frame)
             
-            tableView.backgroundColor = UIColor.darkGray
-            self.backgroundColor = UIColor.darkGray
+            tableView.backgroundColor = UIColor.black
+            self.backgroundColor = UIColor.black
             
             tableView.delegate = self
             tableView.dataSource = self
@@ -183,7 +183,7 @@ class PopUpViewController: UIViewController {
             let cell = UITableViewCell()
             
             cell.textLabel?.text = dropDownOptions[indexPath.row]
-            cell.backgroundColor = UIColor.darkGray
+            cell.backgroundColor = UIColor.white
             return cell
         
         }
