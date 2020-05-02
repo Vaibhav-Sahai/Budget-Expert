@@ -34,6 +34,21 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         }
     }
 
+    //MARK:- Move Screen Up
+    @objc func keyboardWillChange(notification: Notification){
+        guard let keyboardRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else {
+            return
+        }
+        
+        if notification.name == UIResponder.keyboardWillShowNotification ||
+            notification.name == UIResponder.keyboardWillChangeFrameNotification{
+            view.frame.origin.y = -keyboardRect.height
+        } else{
+            view.frame.origin.y = 0
+        }
+    }
+    
+    
     //MARK: - Picker View Configuration
     let currency = ["S/.", "$", "R$", "৳", "¥", "₹","€", "£","AED"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -50,13 +65,27 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         currencySymbol.text = currency[row]
     }
     
-    
+    //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         errorLabel.alpha = 0
         budgetText.delegate = self
         days.delegate = self
+        
+        //Listen for keyboard
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+    }
+    deinit {
+        //Stop listening for keyboard
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
+
     }
     //MARK: - Hide Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
