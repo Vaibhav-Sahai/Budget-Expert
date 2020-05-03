@@ -22,7 +22,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
        
         
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        button.setTitle("Transaction Type", for: .normal)
+        button.setTitle("Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(button)

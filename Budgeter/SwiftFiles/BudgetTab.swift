@@ -28,7 +28,6 @@ class BudgetTab: UIViewController {
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosing), name: .saveAmountEntered, object: nil)
         
-        
     }
     //MARK:- Taking data prep
     @objc func handlePopupClosing(notification: Notification){
