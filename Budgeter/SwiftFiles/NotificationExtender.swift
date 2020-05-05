@@ -10,4 +10,5 @@ import Foundation
 
 extension Notification.Name{
     static let saveAmountEntered = Notification.Name(rawValue: "saveAmountEntered")
+    static let saveTypeEntered = Notification.Name(rawValue: "saveTypeEntered")
 }

@@ -7,12 +7,14 @@
 //
 
 import UIKit
-
+var typeEntered: String?
 class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var itemEntered: UITextField!
+    @IBOutlet weak var typeLabel: UILabel!
     var button = dropDownBtn()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +62,6 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     
     //MARK:- Transaction Cancelled
     @IBAction func transactionCancelled(_ sender: Any) {
-        
         dismiss(animated: true)
     }
     
@@ -81,13 +82,14 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
  
 protocol dropDownProtocol{
     func dropDownPressed(string : String)
+    print(string)
 }
 
 class dropDownBtn: UIButton, dropDownProtocol{
         
     func dropDownPressed(string: String) {
-        // Fix from here onwards
         self.setTitle(string, for: .normal)
+        
         self.dismissDropDown()
     }
     

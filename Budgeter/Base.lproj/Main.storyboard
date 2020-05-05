@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fvV-47-Phe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O3M-kS-2ua">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -305,6 +305,13 @@
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-cx-yh1" userLabel="Type Label">
+                                        <rect key="frame" x="175" y="128" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35179366637984244" green="0.85363781075057243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -316,6 +323,7 @@
                         <outlet property="amountEntered" destination="cDC-cE-ljY" id="oJj-MV-VnJ"/>
                         <outlet property="errorLabel" destination="njo-9Z-ece" id="wdo-GO-eWw"/>
                         <outlet property="itemEntered" destination="YRs-yC-QYI" id="uiH-cx-fFG"/>
+                        <outlet property="typeLabel" destination="rV7-cx-yh1" id="wLo-2E-eOT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBw-mB-nqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -394,8 +402,8 @@
                                 <rect key="frame" x="0.0" y="245" width="414" height="385"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfH-bh-d3J" userLabel="Status Alert">
-                                <rect key="frame" x="165" y="638" width="74" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're Over Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WfH-bh-d3J" userLabel="Status Alert">
+                                <rect key="frame" x="115" y="638" width="184" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -403,8 +411,6 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" secondItem="WfH-bh-d3J" secondAttribute="trailing" constant="175" id="0Zm-R2-Con"/>
-                            <constraint firstItem="WfH-bh-d3J" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="165" id="36A-6q-wJr"/>
                             <constraint firstItem="v5G-Bm-E5x" firstAttribute="top" secondItem="Le2-tL-rnT" secondAttribute="bottom" constant="8" id="4oN-VT-ujn"/>
                             <constraint firstItem="1Ju-u8-BTj" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="112" id="4wl-f3-PfX"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="top" secondItem="Jhw-N6-qZj" secondAttribute="top" id="6MZ-7v-B3L"/>
@@ -415,8 +421,10 @@
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="top" secondItem="1Ju-u8-BTj" secondAttribute="bottom" constant="8" id="HEE-QV-DjO"/>
                             <constraint firstItem="vZ6-Ub-6xG" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="120" id="KMa-jd-Abe"/>
                             <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jhw-N6-qZj" secondAttribute="trailing" symbolic="YES" id="KqN-z5-4m0"/>
+                            <constraint firstItem="WfH-bh-d3J" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="115" id="NOS-xc-jbi"/>
+                            <constraint firstItem="WfH-bh-d3J" firstAttribute="centerX" secondItem="nmz-IX-6XL" secondAttribute="centerX" id="Nbq-7Z-JTS"/>
                             <constraint firstItem="vZ6-Ub-6xG" firstAttribute="top" secondItem="Le2-tL-rnT" secondAttribute="bottom" constant="8" id="SH9-6w-fi2"/>
-                            <constraint firstItem="WfH-bh-d3J" firstAttribute="top" secondItem="nmz-IX-6XL" secondAttribute="bottom" constant="8" id="adC-MK-ByN"/>
+                            <constraint firstItem="WfH-bh-d3J" firstAttribute="top" secondItem="nmz-IX-6XL" secondAttribute="bottom" constant="8" id="V05-RA-cja"/>
                             <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" secondItem="v5G-Bm-E5x" secondAttribute="trailing" constant="166" id="azq-DX-JzA"/>
                             <constraint firstItem="nmz-IX-6XL" firstAttribute="centerY" secondItem="sTK-n2-DEt" secondAttribute="centerY" constant="69.5" id="bK5-dh-zWo"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="centerY" secondItem="Jhw-N6-qZj" secondAttribute="centerY" id="eie-dW-sro"/>
@@ -477,6 +485,8 @@
                         <outlet property="balance" destination="v5G-Bm-E5x" id="DZT-8S-F1u"/>
                         <outlet property="budgetType" destination="Jhw-N6-qZj" id="6Rh-xs-K7w"/>
                         <outlet property="currencySymbol" destination="vZ6-Ub-6xG" id="uAP-gu-sXS"/>
+                        <outlet property="pieChart" destination="nmz-IX-6XL" id="ONQ-zf-Y6a"/>
+                        <outlet property="statusLabel" destination="WfH-bh-d3J" id="ZaV-Lf-com"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
