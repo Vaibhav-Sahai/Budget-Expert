@@ -305,13 +305,6 @@
                                         <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rV7-cx-yh1" userLabel="Type Label">
-                                        <rect key="frame" x="175" y="247" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.35179366637984244" green="0.85363781075057243" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
@@ -323,7 +316,6 @@
                         <outlet property="amountEntered" destination="cDC-cE-ljY" id="oJj-MV-VnJ"/>
                         <outlet property="errorLabel" destination="njo-9Z-ece" id="wdo-GO-eWw"/>
                         <outlet property="itemEntered" destination="YRs-yC-QYI" id="uiH-cx-fFG"/>
-                        <outlet property="typeLabel" destination="rV7-cx-yh1" id="wLo-2E-eOT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IBw-mB-nqP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -12,7 +12,6 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var itemEntered: UITextField!
-    @IBOutlet weak var typeLabel: UILabel!
     var button = dropDownBtn()
 
     
