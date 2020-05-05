@@ -7,7 +7,7 @@
 //
 
 import UIKit
-var typeEntered: String?
+
 class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
@@ -21,8 +21,9 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         errorLabel.alpha = 0
         self.amountEntered.delegate = self
         self.itemEntered.delegate = self
+
        
-        
+    
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -54,6 +55,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBAction func transactionDonePressed(_ sender: Any) {
         if validateFields() == "Success"{
             NotificationCenter.default.post(name: .saveAmountEntered, object: self)
+            NotificationCenter.default.post(name: .saveTypeEntered, object: self)
             dismiss(animated: true)
         } else{
             errorLabel.alpha = 1
@@ -82,14 +84,12 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
  
 protocol dropDownProtocol{
     func dropDownPressed(string : String)
-    print(string)
 }
 
 class dropDownBtn: UIButton, dropDownProtocol{
         
     func dropDownPressed(string: String) {
         self.setTitle(string, for: .normal)
-        
         self.dismissDropDown()
     }
     
@@ -182,7 +182,7 @@ class dropDownBtn: UIButton, dropDownProtocol{
 }
 
 class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
-    
+    var typeSelected: String?
     var dropDownOptions = [String]()
     var tableView = UITableView()
     var delegate : dropDownProtocol!
