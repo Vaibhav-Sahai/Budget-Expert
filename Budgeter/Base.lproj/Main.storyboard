@@ -274,7 +274,7 @@
                                         <rect key="frame" x="39" y="78" width="314" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount Spent" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cDC-cE-ljY" userLabel="Amount">
                                         <rect key="frame" x="39" y="164" width="314" height="34"/>
@@ -376,7 +376,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ6-Ub-6xG">
-                                <rect key="frame" x="120" y="185" width="35" height="30"/>
+                                <rect key="frame" x="97" y="185" width="58" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -411,7 +411,7 @@
                             <constraint firstItem="nmz-IX-6XL" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" id="FHm-qp-SdI"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="top" secondItem="sTK-n2-DEt" secondAttribute="top" constant="82" id="FMU-qi-4cw"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="top" secondItem="1Ju-u8-BTj" secondAttribute="bottom" constant="8" id="HEE-QV-DjO"/>
-                            <constraint firstItem="vZ6-Ub-6xG" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="120" id="KMa-jd-Abe"/>
+                            <constraint firstItem="vZ6-Ub-6xG" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="97" id="KMa-jd-Abe"/>
                             <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jhw-N6-qZj" secondAttribute="trailing" symbolic="YES" id="KqN-z5-4m0"/>
                             <constraint firstItem="WfH-bh-d3J" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="115" id="NOS-xc-jbi"/>
                             <constraint firstItem="WfH-bh-d3J" firstAttribute="centerX" secondItem="nmz-IX-6XL" secondAttribute="centerX" id="Nbq-7Z-JTS"/>

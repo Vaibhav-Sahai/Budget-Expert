@@ -24,7 +24,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
        
     
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        button.setTitle("Select Transaction Type", for: .normal)
+        button.setTitle("Click Here To Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(button)
@@ -41,7 +41,8 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     //MARK:- Validation Check
     func validateFields()-> String{
         if amountEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
-            itemEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            itemEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  ||
+        button.titleLabel?.text == "Click Here To Select Transaction Type" {
             return "Fail"
 
         } else{

@@ -15,7 +15,7 @@ class BudgetTab: UIViewController {
     var currency: String?
     var currentbalance: String?
     var change: String?
-    var balanceChecker: Int?
+    var balanceChecker: Float?
     var type: String?
     var amount: String?
     //MARK:- Chart Variables
@@ -52,8 +52,9 @@ class BudgetTab: UIViewController {
         balanceTypeEssentials.label = "On Essentials"
         
         spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
+
         
-        balanceChecker = Int(balance.text!)
+        balanceChecker = Float(balance.text!)
         status()
         updateChartData()
         
@@ -71,11 +72,18 @@ class BudgetTab: UIViewController {
         let deduction = Double(change!)
         let final = Double(initial! - deduction!)
         balance.text = String(final)
-
-        balanceAmount.value = final
-        updateChartData()
         
-        balanceChecker = Int(balance.text!)
+        if final > -1{
+            balanceAmount.value = final
+            updateChartData()
+        }else{
+            balanceAmount.value = 0
+            updateChartData()
+        }
+    
+        
+        balanceChecker = Float(balance.text!)
+        status()
     }
     @objc func handlePopupClosingType(notification: Notification){
         let typeVC = notification.object as! PopUpViewController
@@ -95,8 +103,8 @@ class BudgetTab: UIViewController {
         if type == "Misc"{
             balanceTypeMisc.value = balanceTypeMisc.value + cost!
             updateChartData()
+        
         }
-
     }
     
     
@@ -106,14 +114,13 @@ class BudgetTab: UIViewController {
         let chartData = PieChartData(dataSet: chartDataSet)
         
         let colors = [UIColor.purple, UIColor.red, UIColor.blue, UIColor.lightGray]
-        
-        chartDataSet.colors = colors 
+    
+        chartDataSet.colors = colors
         pieChart.data = chartData
     }
-    
     //MARK:- Status Label
      func status(){
-        if balanceChecker ?? -200 >= 0{
+        if balanceChecker! >= 0{
             statusLabel.text = "You're On Track!"
             statusLabel.textColor = UIColor.green
         }else{
