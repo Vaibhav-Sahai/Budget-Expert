@@ -46,7 +46,11 @@ class BudgetTab: UIViewController {
         dateConfig()
         currencySymbol.text = currency
         balance.text = currentbalance
-
+        
+        print(initialDifference)
+        print(startingDate)
+        print(finalDate)
+        
         balanceAmount.value = Double(balance.text!)!
         balanceAmount.label = "Balance Left"
         
@@ -59,7 +63,6 @@ class BudgetTab: UIViewController {
         
         spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
 
-        
         balanceChecker = Float(balance.text!)
         status()
         updateChartData()
@@ -69,7 +72,7 @@ class BudgetTab: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
         
     }
-    //MARK:- Taking data prep
+        //MARK:- Taking data prep
     @objc func handlePopupClosingAmount(notification: Notification){
         let amountVC = notification.object as! PopUpViewController
         change = amountVC.amountEntered.text

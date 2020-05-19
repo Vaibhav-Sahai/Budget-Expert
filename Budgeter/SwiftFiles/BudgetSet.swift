@@ -21,10 +21,8 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     @IBOutlet weak var currencySymbol: UILabel!
     @IBOutlet weak var days: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    let rightNow = Date()
     var initialDateDifference: Int?
-
-
+    var rightNow = Date()
     //MARK:- Checking Fields
     
     func validateFields(){
@@ -77,7 +75,8 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         errorLabel.alpha = 0
         budgetText.delegate = self
         days.delegate = self
-        
+        rightNow = Date()
+        print(rightNow)
         //Listen for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -110,7 +109,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         return allowedCharacterSet.isSuperset(of: typedCharacterSet)
     }
     //MARK: - Transition
-    @IBAction func unwindFromNextVC(unwindSegue: UIStoryboardSegue){}
+    
     
     
     //MARK: - Passing Data
