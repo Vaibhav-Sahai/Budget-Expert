@@ -394,6 +394,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="+"/>
                                 <connections>
+                                    <action selector="popupPressed:" destination="je1-fX-CiD" eventType="touchUpInside" id="Xb2-of-jCa"/>
                                     <segue destination="O3M-kS-2ua" kind="presentation" identifier="" id="bby-LO-XWr"/>
                                 </connections>
                             </button>

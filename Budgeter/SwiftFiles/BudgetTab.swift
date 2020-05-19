@@ -20,6 +20,15 @@ class BudgetTab: UIViewController {
     var startingDate: Date?
     var initialDifference: String?
     let rightNow = Date()
+    //MARK:- User Defaults Variables
+    let defaults = UserDefaults.standard
+    struct Keys {
+        static let daysLeft = "daysLeft"
+    }
+    //MARK:- Popup Pressed
+    @IBAction func popupPressed(_ sender: Any) {
+        saveUserPreferences()
+    }
     //MARK:- CountDown
     lazy var calendar = Calendar.current
     lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
@@ -43,6 +52,7 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkForUserPreference()
         dateConfig()
         currencySymbol.text = currency
         balance.text = currentbalance
@@ -141,6 +151,17 @@ class BudgetTab: UIViewController {
         let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
         budgetType.text = String(differenceBetweenDates)
     }
+    
+    func saveUserPreferences(){
+        defaults.set(budgetType.text, forKey: Keys.daysLeft)
+    }
+    
+    func checkForUserPreference(){
+        let daysleft = defaults.string(forKey: Keys.daysLeft)
+        budgetType.text = daysleft
+            
+        }
+    
     /*
     // MARK: - Navigation
 
