@@ -11,13 +11,19 @@ import Charts
 
 class BudgetTab: UIViewController {
     
-    var budget: String?
     var currency: String?
     var currentbalance: String?
     var change: String?
     var balanceChecker: Float?
     var type: String?
     var amount: String?
+    var startingDate: Date?
+    var initialDifference: String?
+    let rightNow = Date()
+    //MARK:- CountDown
+    lazy var calendar = Calendar.current
+    lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
+    
     //MARK:- Chart Variables
     var balanceAmount = PieChartDataEntry(value: 0)
     var balanceTypeLuxury = PieChartDataEntry(value: 0)
@@ -34,13 +40,13 @@ class BudgetTab: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     
     
+    //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        budgetType.text = budget
+        dateConfig()
         currencySymbol.text = currency
         balance.text = currentbalance
-        
-        
+
         balanceAmount.value = Double(balance.text!)!
         balanceAmount.label = "Balance Left"
         
@@ -127,6 +133,10 @@ class BudgetTab: UIViewController {
             statusLabel.text = "You're Over Budget!"
             statusLabel.textColor = UIColor.red
         }
+    }
+    func dateConfig() {
+        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
+        budgetType.text = String(differenceBetweenDates)
     }
     /*
     // MARK: - Navigation

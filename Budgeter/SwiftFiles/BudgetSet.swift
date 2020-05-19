@@ -7,6 +7,7 @@
 // performSegue(withIdentifier: "segue", sender: self)
 
 import UIKit
+import Foundation
 
 class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     
@@ -20,7 +21,10 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     @IBOutlet weak var currencySymbol: UILabel!
     @IBOutlet weak var days: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
-    
+    let rightNow = Date()
+    var initialDateDifference: Int?
+
+
     //MARK:- Checking Fields
     
     func validateFields(){
@@ -42,7 +46,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         
         if notification.name == UIResponder.keyboardWillShowNotification ||
             notification.name == UIResponder.keyboardWillChangeFrameNotification{
-            view.frame.origin.y = -keyboardRect.height + 60
+            view.frame.origin.y = -keyboardRect.height + 70
         } else{
             view.frame.origin.y = 0
         }
@@ -85,8 +89,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
-
+    
     }
     //MARK: - Hide Keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -113,11 +116,12 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     //MARK: - Passing Data
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let mainTabBarController = segue.destination as? MainTabBar{
-            mainTabBarController.budget = days.text
             mainTabBarController.currency = currencySymbol.text
             mainTabBarController.currentbalance = budgetText.text
+            mainTabBarController.initialDate = rightNow
+            mainTabBarController.initialDifference = days.text
         }
     }
-
+  
 
 }
