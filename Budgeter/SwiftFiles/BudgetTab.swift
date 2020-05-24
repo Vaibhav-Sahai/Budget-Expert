@@ -20,6 +20,7 @@ class BudgetTab: UIViewController {
     var startingDate: Date?
     var initialDifference: String?
     let rightNow = Date()
+    
     //MARK:- User Defaults Variables
     let defaults = UserDefaults.standard
     struct Keys {
@@ -48,6 +49,11 @@ class BudgetTab: UIViewController {
     @IBOutlet weak var balance: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
+    //MARK:- viewDidAppear
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        saveUserPreferences()
+        }
     
     //MARK:- viewDidLoad
     override func viewDidLoad() {
@@ -82,6 +88,7 @@ class BudgetTab: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
         
     }
+    
         //MARK:- Taking data prep
     @objc func handlePopupClosingAmount(notification: Notification){
         let amountVC = notification.object as! PopUpViewController
@@ -152,8 +159,10 @@ class BudgetTab: UIViewController {
         budgetType.text = String(differenceBetweenDates)
     }
     
+    //MARK:- User Defaults
     func saveUserPreferences(){
         defaults.set(budgetType.text, forKey: Keys.daysLeft)
+        
     }
     
     func checkForUserPreference(){

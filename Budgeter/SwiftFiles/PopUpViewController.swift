@@ -238,17 +238,6 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
     
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /*
 // MARK: - Navigation
 
