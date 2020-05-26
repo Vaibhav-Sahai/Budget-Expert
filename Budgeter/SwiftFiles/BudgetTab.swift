@@ -25,6 +25,11 @@ class BudgetTab: UIViewController {
     let defaults = UserDefaults.standard
     struct Keys {
         static let daysLeft = "daysLeft"
+        static let balanceLeft = "balanceLeft"
+        static let currencySymbol = "currencySymbol"
+        static let statusLabel = "statusLabel"
+        
+        
     }
     //MARK:- Popup Pressed
     @IBAction func popupPressed(_ sender: Any) {
@@ -54,6 +59,11 @@ class BudgetTab: UIViewController {
         super.viewDidAppear(animated)
         print("View Appeared: Saved")
         saveUserPreferences()
+        if balanceChecker! >= 0{
+            statusLabel.textColor = UIColor.green
+        }else{
+            statusLabel.text = "You're Over Budget!"
+        }
         }
     
     //MARK:- viewDidLoad
@@ -85,6 +95,12 @@ class BudgetTab: UIViewController {
         status()
         updateChartData()
         
+        if balanceChecker! >= 0{
+            statusLabel.textColor = UIColor.green
+        }else{
+            statusLabel.text = "You're Over Budget!"
+        }
+        
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
@@ -109,7 +125,6 @@ class BudgetTab: UIViewController {
             updateChartData()
         }
     
-        
         balanceChecker = Float(balance.text!)
         status()
     }
@@ -134,8 +149,7 @@ class BudgetTab: UIViewController {
         
         }
     }
-    
-    
+
     //MARK:- Chart Updation
     func updateChartData(){
         let chartDataSet = PieChartDataSet(entries: spendingCalculator, label: nil)
@@ -164,13 +178,21 @@ class BudgetTab: UIViewController {
     //MARK:- User Defaults
     func saveUserPreferences(){
         defaults.set(budgetType.text, forKey: Keys.daysLeft)
+        defaults.set(balance.text, forKey: Keys.balanceLeft)
+        defaults.set(currencySymbol.text, forKey: Keys.currencySymbol)
+        defaults.set(statusLabel.text, forKey: Keys.statusLabel)
         
     }
     
     func checkForUserPreference(){
         let daysleft = defaults.string(forKey: Keys.daysLeft)
         budgetType.text = daysleft
-            
+        let balanceleft = defaults.string(forKey: Keys.balanceLeft)
+        balance.text = balanceleft
+        let currencysymbol = defaults.string(forKey: Keys.currencySymbol)
+        currencySymbol.text = currencysymbol
+        let statuslabel = defaults.string(forKey: Keys.statusLabel)
+        statusLabel.text = statuslabel
         }
     
     /*
