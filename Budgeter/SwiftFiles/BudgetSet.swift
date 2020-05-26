@@ -32,6 +32,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
             errorLabel.alpha = 1
             
         }else{
+            UserDefaults.standard.set(true, forKey: "IsLoggedIn")
             performSegue(withIdentifier: "segue", sender: self)
         }
     }

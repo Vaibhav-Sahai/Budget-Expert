@@ -29,6 +29,9 @@ class BudgetTab: UIViewController {
         static let currencySymbol = "currencySymbol"
         static let statusLabel = "statusLabel"
         
+        //MARK:- Saving Transistion Variables
+        static let initialDifference = "initialDifference"
+        static let startingdate = "startingDate"
         
     }
     //MARK:- Popup Pressed
@@ -181,7 +184,9 @@ class BudgetTab: UIViewController {
         defaults.set(balance.text, forKey: Keys.balanceLeft)
         defaults.set(currencySymbol.text, forKey: Keys.currencySymbol)
         defaults.set(statusLabel.text, forKey: Keys.statusLabel)
-        
+        //MARK:- Saving Transistion Variables
+        defaults.set(initialDifference, forKey: Keys.initialDifference)
+        defaults.set(startingDate, forKey: Keys.startingdate)
     }
     
     func checkForUserPreference(){
@@ -193,6 +198,12 @@ class BudgetTab: UIViewController {
         currencySymbol.text = currencysymbol
         let statuslabel = defaults.string(forKey: Keys.statusLabel)
         statusLabel.text = statuslabel
+        
+        //MARK:- Retrieving Transistion Variables
+        let initialdifference = defaults.string(forKey: Keys.initialDifference)
+        initialDifference = initialdifference
+        let startingdate = defaults.data(forKey: Keys.startingdate)
+        startingDate = startingdate
         }
     
     /*

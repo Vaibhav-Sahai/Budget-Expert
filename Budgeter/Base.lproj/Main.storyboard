@@ -333,7 +333,7 @@
         <!--Budget-->
         <scene sceneID="aLm-4n-bk4">
             <objects>
-                <viewController id="je1-fX-CiD" customClass="BudgetTab" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BudgetTab" id="je1-fX-CiD" customClass="BudgetTab" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTK-n2-DEt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
