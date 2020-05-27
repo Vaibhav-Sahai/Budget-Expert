@@ -60,7 +60,6 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View Appeared: Saved")
         saveUserPreferences()
         
         }
@@ -68,7 +67,6 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View Loaded: Checked")
         checkForUserPreference()
         //dateConfig()
         

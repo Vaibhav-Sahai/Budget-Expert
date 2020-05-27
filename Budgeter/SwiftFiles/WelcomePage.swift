@@ -13,9 +13,10 @@ class WelcomePage: UIViewController {
     @IBOutlet weak var welcomeButton: UIButton!
     @IBOutlet var WelcomeLabel: UIView!
     override func viewDidLoad() {
+        welcomeButton.layer.cornerRadius = welcomeButton.frame.height / 2
         super.viewDidLoad()
-        welcomeButton.layer.cornerRadius = 10
-        self.navigationController?.navigationBar.isHidden = true
+        
+
         // Do any additional setup after loading the view.
     }
     //MARK:- Return From Budget Tab
