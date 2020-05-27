@@ -71,6 +71,7 @@ class BudgetTab: UIViewController {
         print("View Loaded: Checked")
         checkForUserPreference()
         //dateConfig()
+        
         currencySymbol.text = currency
         balance.text = currentbalance
         
@@ -179,10 +180,10 @@ class BudgetTab: UIViewController {
         defaults.set(currencySymbol.text, forKey: Keys.currencySymbol)
         defaults.set(statusLabel.text, forKey: Keys.statusLabel)
         //MARK:- Saving Transistion Variables
-        defaults.set(initialDifference, forKey: Keys.initialDifference)
+        //The problem is that the value is saved as a nil 
         
     }
-    
+ 
     func checkForUserPreference(){
         let daysleft = defaults.string(forKey: Keys.daysLeft)
         budgetType.text = daysleft
@@ -192,12 +193,11 @@ class BudgetTab: UIViewController {
         currencySymbol.text = currencysymbol
         
         
-        
         //MARK:- Retrieving Transistion Variables
-        let initialdifference = defaults.string(forKey: Keys.initialDifference)
-        initialDifference = initialdifference
+        
         
         }
+    
     
     /*
     // MARK: - Navigation

@@ -27,7 +27,7 @@ class MainTabBar: UITabBarController {
                 budgetData.currentbalance = currentbalance
                 budgetData.startingDate = initialDate
                 budgetData.initialDifference = initialDifference
-                print(initialDifference)
+                
             }
         }
         
