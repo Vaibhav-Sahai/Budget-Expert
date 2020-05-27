@@ -60,7 +60,6 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("View Appeared: Saved")
         saveUserPreferences()
         if balanceChecker! >= 0{
             statusLabel.textColor = UIColor.green
@@ -72,7 +71,6 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("View Loaded: Checked")
         checkForUserPreference()
         dateConfig()
         currencySymbol.text = currency
