@@ -39,8 +39,8 @@ class BudgetTab: UIViewController {
         saveUserPreferences()
     }
     //MARK:- CountDown
-    lazy var calendar = Calendar.current
-    lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
+    //lazy var calendar = Calendar.current
+    //lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
     
     //MARK:- Chart Variables
     var balanceAmount = PieChartDataEntry(value: 0)
@@ -62,11 +62,7 @@ class BudgetTab: UIViewController {
         super.viewDidAppear(animated)
         print("View Appeared: Saved")
         saveUserPreferences()
-        if balanceChecker! >= 0{
-            statusLabel.textColor = UIColor.green
-        }else{
-            statusLabel.text = "You're Over Budget!"
-        }
+        
         }
     
     //MARK:- viewDidLoad
@@ -74,13 +70,14 @@ class BudgetTab: UIViewController {
         super.viewDidLoad()
         print("View Loaded: Checked")
         checkForUserPreference()
-        dateConfig()
+        //dateConfig()
         currencySymbol.text = currency
         balance.text = currentbalance
         
+        
         print(initialDifference)
         print(startingDate)
-        print(finalDate)
+        
         
         balanceAmount.value = Double(balance.text!)!
         balanceAmount.label = "Balance Left"
@@ -98,11 +95,7 @@ class BudgetTab: UIViewController {
         status()
         updateChartData()
         
-        if balanceChecker! >= 0{
-            statusLabel.textColor = UIColor.green
-        }else{
-            statusLabel.text = "You're Over Budget!"
-        }
+
         
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
@@ -173,10 +166,11 @@ class BudgetTab: UIViewController {
             statusLabel.textColor = UIColor.red
         }
     }
-    func dateConfig() {
-        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
-        budgetType.text = String(differenceBetweenDates)
-    }
+    //MARK:- Date Config
+    //func dateConfig() {
+        //let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
+        //budgetType.text = String(differenceBetweenDates)
+    //}
     
     //MARK:- User Defaults
     func saveUserPreferences(){
@@ -186,7 +180,7 @@ class BudgetTab: UIViewController {
         defaults.set(statusLabel.text, forKey: Keys.statusLabel)
         //MARK:- Saving Transistion Variables
         defaults.set(initialDifference, forKey: Keys.initialDifference)
-        defaults.set(startingDate, forKey: Keys.startingdate)
+        
     }
     
     func checkForUserPreference(){
@@ -196,14 +190,13 @@ class BudgetTab: UIViewController {
         balance.text = balanceleft
         let currencysymbol = defaults.string(forKey: Keys.currencySymbol)
         currencySymbol.text = currencysymbol
-        let statuslabel = defaults.string(forKey: Keys.statusLabel)
-        statusLabel.text = statuslabel
+        
+        
         
         //MARK:- Retrieving Transistion Variables
         let initialdifference = defaults.string(forKey: Keys.initialDifference)
         initialDifference = initialdifference
-        let startingdate = defaults.data(forKey: Keys.startingdate)
-        startingDate = startingdate
+        
         }
     
     /*
