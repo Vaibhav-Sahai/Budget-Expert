@@ -13,6 +13,7 @@ class WelcomePage: UIViewController {
     @IBOutlet weak var welcomeButton: UIButton!
     @IBOutlet var WelcomeLabel: UIView!
     override func viewDidLoad() {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         welcomeButton.layer.cornerRadius = welcomeButton.frame.height / 2
         super.viewDidLoad()
         

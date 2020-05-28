@@ -122,6 +122,14 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
             mainTabBarController.initialDifference = days.text
         }
     }
-  
+    
+    //MARK:- Removing User Data
+    func resetDefaults() {
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+    }
 
 }

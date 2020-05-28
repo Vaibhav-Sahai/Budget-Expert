@@ -10,7 +10,7 @@
         <!--Welcome Page-->
         <scene sceneID="Pd4-Z4-UWb">
             <objects>
-                <viewController id="Thq-UR-amE" customClass="WelcomePage" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomePage" id="Thq-UR-amE" customClass="WelcomePage" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tNH-9B-oE7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
