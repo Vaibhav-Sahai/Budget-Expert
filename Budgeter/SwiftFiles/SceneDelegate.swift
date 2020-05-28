@@ -13,14 +13,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     fileprivate func isLoggedIn() -> Bool{
-        //return UserDefaults.standard.bool(forKey: "IsLoggedIn")
-        return false
+        return UserDefaults.standard.bool(forKey: "IsLoggedIn")
+    }
+    //Developer Use Function
+    func resetDefaults() {
+        print("Reset Defaults: Done")
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
     }
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-
+        
         if isLoggedIn(){
             if let windowScene = scene as? UIWindowScene {
                 let window = UIWindow(windowScene: windowScene)

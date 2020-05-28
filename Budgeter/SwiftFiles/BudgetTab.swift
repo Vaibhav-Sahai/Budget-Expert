@@ -27,20 +27,25 @@ class BudgetTab: UIViewController {
         static let daysLeft = "daysLeft"
         static let balanceLeft = "balanceLeft"
         static let currencySymbol = "currencySymbol"
-        static let statusLabel = "statusLabel"
+        static let balance = "balance"
+        static let currentBalance = "currentBalance"
         
         //MARK:- Saving Transistion Variables
         static let initialDifference = "initialDifference"
         static let startingdate = "startingDate"
         
     }
+    //MARK:- Resetting User Defaults
+    @IBAction func goToWelcomePage(_ sender: Any) {
+        resetDefaults()
+    }
     //MARK:- Popup Pressed
     @IBAction func popupPressed(_ sender: Any) {
         saveUserPreferences()
     }
     //MARK:- CountDown
-    //lazy var calendar = Calendar.current
-    //lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
+    lazy var calendar = Calendar.current
+    lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
     
     //MARK:- Chart Variables
     var balanceAmount = PieChartDataEntry(value: 0)
@@ -61,22 +66,21 @@ class BudgetTab: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         saveUserPreferences()
-        
         }
     
     //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForUserPreference()
-        //dateConfig()
+        dateConfig()
         
         currencySymbol.text = currency
         balance.text = currentbalance
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         print(initialDifference)
         print(startingDate)
-        
+        print(finalDate)
         
         balanceAmount.value = Double(balance.text!)!
         balanceAmount.label = "Balance Left"
@@ -166,20 +170,39 @@ class BudgetTab: UIViewController {
         }
     }
     //MARK:- Date Config
-    //func dateConfig() {
-        //let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
-        //budgetType.text = String(differenceBetweenDates)
-    //}
+    func dateConfig() {
+        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
+        budgetType.text = String(differenceBetweenDates)
+    }
     
     //MARK:- User Defaults
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
     func saveUserPreferences(){
         defaults.set(budgetType.text, forKey: Keys.daysLeft)
         defaults.set(balance.text, forKey: Keys.balanceLeft)
         defaults.set(currencySymbol.text, forKey: Keys.currencySymbol)
-        defaults.set(statusLabel.text, forKey: Keys.statusLabel)
-        //MARK:- Saving Transistion Variables
-        //The problem is that the value is saved as a nil 
         
+        //MARK:- Saving Transistion Variables
+        //The problem is that the value is saved as a nil
+        if isKeyPresentInUserDefaults(key: Keys.startingdate){
+            print("Starting Date Exists")
+        }else{
+            defaults.set(startingDate, forKey: Keys.startingdate)
+        }
+        if isKeyPresentInUserDefaults(key: Keys.initialDifference){
+            print("Initial Difference Exists")
+        }else{
+            defaults.set(initialDifference, forKey: Keys.initialDifference)
+        }
+        if isKeyPresentInUserDefaults(key: Keys.currentBalance){
+            print("Current Balance Variable Exists")
+        }else{
+            defaults.set(currentbalance, forKey: Keys.currentBalance)
+        }
+        //Setting Budget Tab As Main Screen
+        defaults.set(true, forKey: "IsLoggedIn")
     }
  
     func checkForUserPreference(){
@@ -190,11 +213,38 @@ class BudgetTab: UIViewController {
         let currencysymbol = defaults.string(forKey: Keys.currencySymbol)
         currencySymbol.text = currencysymbol
         
-        
         //MARK:- Retrieving Transistion Variables
-        
-        
+        if isKeyPresentInUserDefaults(key: Keys.startingdate){
+            let date = defaults.object(forKey: Keys.startingdate) as! Date
+            startingDate = date
+        }else{
+            print("Starting Date Doesn't Exist")
         }
+        
+        if isKeyPresentInUserDefaults(key: Keys.initialDifference){
+            let initialdifference = defaults.string(forKey: Keys.initialDifference)
+            initialDifference = initialdifference
+        }else{
+            print("Initial Difference Doesn't Exist")
+        }
+        
+        if isKeyPresentInUserDefaults(key: Keys.currentBalance){
+            let currentbalance2 = defaults.string(forKey: Keys.currentBalance)
+            currentbalance = currentbalance2
+        }else{
+            print("Current Balance Doesn't Exist")
+        }
+        
+    }
+    //MARK:- Reseting Data
+    func resetDefaults() {
+        print("Reset Defaults: Done")
+        let defaults = UserDefaults.standard
+        let dictionary = defaults.dictionaryRepresentation()
+        dictionary.keys.forEach { key in
+            defaults.removeObject(forKey: key)
+        }
+    }
     
     
     /*

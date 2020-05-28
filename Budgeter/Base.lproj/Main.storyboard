@@ -367,6 +367,7 @@
                                 <rect key="frame" x="112" y="44" width="173" height="30"/>
                                 <state key="normal" title="Reset Budget"/>
                                 <connections>
+                                    <action selector="goToWelcomePage:" destination="je1-fX-CiD" eventType="touchUpInside" id="zJO-fL-890"/>
                                     <action selector="unwindFromNextVCWithUnwindSegue:" destination="8hO-6q-qFc" eventType="touchUpInside" id="rnn-NB-tGB"/>
                                     <segue destination="r2T-2p-PSf" kind="unwind" unwindAction="unwindFromNextVCWithUnwindSegue:" id="WXR-k1-9in"/>
                                 </connections>

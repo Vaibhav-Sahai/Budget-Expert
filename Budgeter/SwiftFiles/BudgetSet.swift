@@ -13,6 +13,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     @IBOutlet weak var homeButton: UIButton!
     @IBAction func homeButtonPressed(_ sender: Any) {
+        resetDefaults()
         validateFields()
         }
 
@@ -123,8 +124,9 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         }
     }
     
-    //MARK:- Removing User Data
+    //MARK:- Making Sure UserDefaults Is Empty
     func resetDefaults() {
+        print("Reset Defaults: Done")
         let defaults = UserDefaults.standard
         let dictionary = defaults.dictionaryRepresentation()
         dictionary.keys.forEach { key in
