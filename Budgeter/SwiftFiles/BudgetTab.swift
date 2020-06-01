@@ -30,6 +30,9 @@ class BudgetTab: UIViewController {
         static let balance = "balance"
         static let currentBalance = "currentBalance"
         
+        //Checking Status Of Existence
+        static let balanceExisting = "balanceExisting"
+        static let currencyExisting = "currencyExisting"
         //MARK:- Saving Transistion Variables
         static let initialDifference = "initialDifference"
         static let startingdate = "startingDate"
@@ -74,8 +77,19 @@ class BudgetTab: UIViewController {
         checkForUserPreference()
         dateConfig()
         
-        currencySymbol.text = currency
-        balance.text = currentbalance
+        if defaults.bool(forKey: Keys.balanceExisting){
+            print("Balance Already Saved And Shown")
+        }else{
+            balance.text = currentbalance
+        }
+        
+        if defaults.bool(forKey: Keys.currencyExisting){
+            print("Currency Already Saved And Shown")
+        }else{
+            currencySymbol.text = currency
+        }
+    
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         print(initialDifference)
@@ -126,6 +140,7 @@ class BudgetTab: UIViewController {
     
         balanceChecker = Float(balance.text!)
         status()
+        
     }
     @objc func handlePopupClosingType(notification: Notification){
         let typeVC = notification.object as! PopUpViewController
@@ -147,6 +162,7 @@ class BudgetTab: UIViewController {
             updateChartData()
         
         }
+        
     }
 
     //MARK:- Chart Updation
@@ -203,6 +219,10 @@ class BudgetTab: UIViewController {
         }
         //Setting Budget Tab As Main Screen
         defaults.set(true, forKey: "IsLoggedIn")
+        //Saving Balance
+        defaults.set(true, forKey: Keys.balanceExisting)
+        //Saving Currency Symbol
+        defaults.set(true, forKey: Keys.currencyExisting)
     }
  
     func checkForUserPreference(){

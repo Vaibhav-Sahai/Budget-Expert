@@ -369,7 +369,7 @@
                                 <connections>
                                     <action selector="goToWelcomePage:" destination="je1-fX-CiD" eventType="touchUpInside" id="zJO-fL-890"/>
                                     <action selector="unwindFromNextVCWithUnwindSegue:" destination="8hO-6q-qFc" eventType="touchUpInside" id="rnn-NB-tGB"/>
-                                    <segue destination="r2T-2p-PSf" kind="unwind" unwindAction="unwindFromNextVCWithUnwindSegue:" id="WXR-k1-9in"/>
+                                    <segue destination="fvV-47-Phe" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="wX3-wJ-VNl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-N6-qZj">
@@ -492,7 +492,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="r2T-2p-PSf" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2921.739130434783" y="776.08695652173924"/>
         </scene>
@@ -514,10 +513,10 @@
             </objects>
             <point key="canvasLocation" x="4275" y="777"/>
         </scene>
-        <!--Main Tab Bar-->
+        <!--MainTabBar-->
         <scene sceneID="kzo-zN-7Fu">
             <objects>
-                <tabBarController id="4v3-8k-Q42" customClass="MainTabBar" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" title="MainTabBar" id="4v3-8k-Q42" customClass="MainTabBar" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mLM-xZ-qDv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0nI-pN-xLN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -531,13 +530,14 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2O-iO-gmQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3517" y="-15"/>
+            <point key="canvasLocation" x="3506" y="-17"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rjw-GJ-TuS">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="fvV-47-Phe" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="8d3-Be-qWu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qfA-Ur-Xyt">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
