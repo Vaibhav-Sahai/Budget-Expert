@@ -69,12 +69,14 @@ class BudgetTab: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         saveUserPreferences()
+        print("Saved Data")
         }
     
     //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         checkForUserPreference()
+        print("Checked Data")
         dateConfig()
         
         if defaults.bool(forKey: Keys.balanceExisting){
@@ -88,7 +90,6 @@ class BudgetTab: UIViewController {
         }else{
             currencySymbol.text = currency
         }
-    
         
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
