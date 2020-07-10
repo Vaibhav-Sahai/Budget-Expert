@@ -30,12 +30,20 @@ class BudgetTab: UIViewController {
         static let balance = "balance"
         static let currentBalance = "currentBalance"
         
+        //Saving Piechart Variables
+        static let balanceAmount = "balanceAmount"
+        static let balanceTypeLuxury = "balanceTypeLuxury"
+        static let balanceTypeEssentials = "balanceTypeEssentials"
+        static let balanceTypeMisc = "balanceTypeMisc"
+        
         //Checking Status Of Existence
         static let balanceExisting = "balanceExisting"
         static let currencyExisting = "currencyExisting"
+        static let pieDataExisting = "pieDataExisting"
         //MARK:- Saving Transistion Variables
         static let initialDifference = "initialDifference"
         static let startingdate = "startingDate"
+        static let finaldate = "finalDate"
         
     }
     //MARK:- Resetting User Defaults
@@ -68,6 +76,7 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        dateConfig()
         saveUserPreferences()
         print("Saved Data")
         }
@@ -97,23 +106,27 @@ class BudgetTab: UIViewController {
         print(startingDate)
         print(finalDate)
         
-        balanceAmount.value = Double(balance.text!)!
-        balanceAmount.label = "Balance Left"
-        
-        balanceTypeLuxury.value = Double(0)
-        balanceTypeLuxury.label = "On Luxury"
-        balanceTypeMisc.value = Double(0)
-        balanceTypeMisc.label = "On Misc"
-        balanceTypeEssentials.value = Double(0)
-        balanceTypeEssentials.label = "On Essentials"
-        
-        spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
+        if defaults.bool(forKey: Keys.pieDataExisting){
+            
+            print("Pie Data Exists And Shown")
+        }else{
+            balanceAmount.value = Double(balance.text!)!
+            balanceAmount.label = "Balance Left"
+            
+            balanceTypeLuxury.value = Double(0)
+            balanceTypeLuxury.label = "On Luxury"
+            balanceTypeMisc.value = Double(0)
+            balanceTypeMisc.label = "On Misc"
+            balanceTypeEssentials.value = Double(0)
+            balanceTypeEssentials.label = "On Essentials"
+            
+            spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
+        }
 
         balanceChecker = Float(balance.text!)
         status()
         updateChartData()
         
-
         
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
@@ -200,9 +213,13 @@ class BudgetTab: UIViewController {
         defaults.set(budgetType.text, forKey: Keys.daysLeft)
         defaults.set(balance.text, forKey: Keys.balanceLeft)
         defaults.set(currencySymbol.text, forKey: Keys.currencySymbol)
+        //Saving Array Of Chart
+        defaults.set(balanceAmount.value, forKey: Keys.balanceAmount)
+        defaults.set(balanceTypeLuxury.value, forKey: Keys.balanceTypeLuxury)
+        defaults.set(balanceTypeMisc.value, forKey: Keys.balanceTypeMisc)
+        defaults.set(balanceTypeEssentials.value, forKey: Keys.balanceTypeEssentials)
         
         //MARK:- Saving Transistion Variables
-        //The problem is that the value is saved as a nil
         if isKeyPresentInUserDefaults(key: Keys.startingdate){
             print("Starting Date Exists")
         }else{
@@ -212,6 +229,11 @@ class BudgetTab: UIViewController {
             print("Initial Difference Exists")
         }else{
             defaults.set(initialDifference, forKey: Keys.initialDifference)
+        }
+        if isKeyPresentInUserDefaults(key: Keys.finaldate){
+            print("Final Date Exists")
+        }else{
+            defaults.set(finalDate, forKey: Keys.finaldate)
         }
         if isKeyPresentInUserDefaults(key: Keys.currentBalance){
             print("Current Balance Variable Exists")
@@ -224,6 +246,8 @@ class BudgetTab: UIViewController {
         defaults.set(true, forKey: Keys.balanceExisting)
         //Saving Currency Symbol
         defaults.set(true, forKey: Keys.currencyExisting)
+        //Savin Piechart Data
+        defaults.set(true, forKey: Keys.pieDataExisting)
     }
  
     func checkForUserPreference(){
@@ -234,12 +258,44 @@ class BudgetTab: UIViewController {
         let currencysymbol = defaults.string(forKey: Keys.currencySymbol)
         currencySymbol.text = currencysymbol
         
+        //MARK:- Retrieving Piechart Data
+        if isKeyPresentInUserDefaults(key: Keys.pieDataExisting){
+            let balanceAmountR = defaults.double(forKey: Keys.balanceAmount)
+            let balanceTypeMiscR = defaults.double(forKey: Keys.balanceTypeMisc)
+            let balanceTypeLuxuryR = defaults.double(forKey: Keys.balanceTypeLuxury)
+            let balanceTypeEssentialsR = defaults.double(forKey: Keys.balanceTypeEssentials)
+            
+            //Assigning Data
+            balanceAmount.value = balanceAmountR
+            balanceAmount.label = "Balance Left"
+            
+            balanceTypeLuxury.value = balanceTypeLuxuryR
+            balanceTypeLuxury.label = "On Luxury"
+            
+            balanceTypeMisc.value = balanceTypeMiscR
+            balanceTypeMisc.label = "On Misc"
+            
+            balanceTypeEssentials.value = balanceTypeEssentialsR
+            balanceTypeEssentials.label = "On Essentials"
+            
+            spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
+        }else{
+            print("Pie Data Doesn't Exists")
+        }
+        
         //MARK:- Retrieving Transistion Variables
         if isKeyPresentInUserDefaults(key: Keys.startingdate){
             let date = defaults.object(forKey: Keys.startingdate) as! Date
             startingDate = date
         }else{
             print("Starting Date Doesn't Exist")
+        }
+        
+        if isKeyPresentInUserDefaults(key: Keys.finaldate){
+            let date = defaults.object(forKey: Keys.startingdate) as! Date
+            startingDate = date
+        }else{
+            print("Final Date Doesn't Exist")
         }
         
         if isKeyPresentInUserDefaults(key: Keys.initialDifference){
