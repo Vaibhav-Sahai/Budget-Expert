@@ -312,7 +312,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="15U-HJ-V2T" firstAttribute="centerY" secondItem="CDe-p6-Xnl" secondAttribute="centerY" id="iDb-d5-TKK"/>
                             <constraint firstItem="15U-HJ-V2T" firstAttribute="centerX" secondItem="CDe-p6-Xnl" secondAttribute="centerX" id="utZ-xh-SnK"/>
@@ -369,7 +369,7 @@
                                 <connections>
                                     <action selector="goToWelcomePage:" destination="je1-fX-CiD" eventType="touchUpInside" id="zJO-fL-890"/>
                                     <action selector="unwindFromNextVCWithUnwindSegue:" destination="8hO-6q-qFc" eventType="touchUpInside" id="rnn-NB-tGB"/>
-                                    <segue destination="fvV-47-Phe" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="wX3-wJ-VNl"/>
+                                    <segue destination="fvV-47-Phe" kind="presentation" identifier="returnHome" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="wX3-wJ-VNl"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Days" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-N6-qZj">
@@ -397,7 +397,7 @@
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <action selector="popupPressed:" destination="je1-fX-CiD" eventType="touchUpInside" id="Xb2-of-jCa"/>
-                                    <segue destination="O3M-kS-2ua" kind="presentation" identifier="" modalPresentationStyle="fullScreen" id="bby-LO-XWr"/>
+                                    <segue destination="O3M-kS-2ua" kind="presentation" identifier="" modalPresentationStyle="overCurrentContext" id="bby-LO-XWr"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmz-IX-6XL" customClass="PieChartView" customModule="Charts">

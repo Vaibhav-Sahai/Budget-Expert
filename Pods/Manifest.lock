@@ -2,21 +2,25 @@ PODS:
   - Charts (3.5.0):
     - Charts/Core (= 3.5.0)
   - Charts/Core (3.5.0)
+  - SCLAlertView (0.8)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
   - Charts
+  - SCLAlertView
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
     - Charts
+    - SCLAlertView
     - TinyConstraints
 
 SPEC CHECKSUMS:
   Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
+  SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 8b1c67fb20b92ddef8e3f7efc7de501168cc5451
+PODFILE CHECKSUM: c2972a09ab51bebb455b09082d9d664499aee403
 
 COCOAPODS: 1.9.1

@@ -8,6 +8,7 @@ target 'Budgeter' do
   # Pods for Budgeter
   pod 'Charts'
   pod 'TinyConstraints'
+  pod 'SCLAlertView'
 
   target 'BudgeterTests' do
     inherit! :search_paths

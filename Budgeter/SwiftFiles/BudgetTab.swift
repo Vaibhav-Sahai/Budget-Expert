@@ -8,6 +8,7 @@
 
 import UIKit
 import Charts
+import SCLAlertView
 
 class BudgetTab: UIViewController {
     
@@ -20,6 +21,13 @@ class BudgetTab: UIViewController {
     var startingDate: Date?
     var initialDifference: String?
     let rightNow = Date()
+    //Setting Up Custom Alerts
+    /*let noCloseButton = SCLAlertView.SCLAppearance(
+        showCloseButton: false
+    )*/
+    let alertBudgetReached = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
+    
+    let alertBudgetNotReached = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     
     //MARK:- User Defaults Variables
     let defaults = UserDefaults.standard
@@ -73,6 +81,38 @@ class BudgetTab: UIViewController {
     @IBOutlet weak var balance: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
     
+    //MARK:- Custom Alerts
+    func budgetAchieved(){
+        alertBudgetReached.addButton("Reset"){
+            self.resetDefaults()
+            self.performSegue(withIdentifier: "returnHome", sender: nil)
+        }
+        //Horrible Way To Declare Results
+        let amountLeft = balance.text!
+        alertBudgetReached.showSuccess("Target Reached!", subTitle: "Initial Budget: "+currencySymbol.text!+currentbalance!+"\n Essential Items Spending: "+currencySymbol.text!+String(balanceTypeEssentials.value)+"\n Luxury Items Spending: "+currencySymbol.text!+String(balanceTypeLuxury.value)+"\n Misc. Items Spending: "+currencySymbol.text!+String(balanceTypeMisc.value)+"\n Amount Left: "+currencySymbol.text!+amountLeft)
+    }
+    
+    func budgetNotAchieved(){
+        alertBudgetNotReached.addButton("Reset"){
+            self.resetDefaults()
+            self.performSegue(withIdentifier: "returnHome", sender: nil)
+        }
+        //Dont Do This
+        let amountLeft = balance.text!
+        alertBudgetNotReached.showError("Target Not Reached!", subTitle: "Initial Budget: "+currencySymbol.text!+currentbalance!+"\n Essential Items Spending: "+currencySymbol.text!+String(balanceTypeEssentials.value)+"\n Luxury Items Spending: "+currencySymbol.text!+String(balanceTypeLuxury.value)+"\n Misc. Items Spending: "+currencySymbol.text!+String(balanceTypeMisc.value)+"\n Budget Deficit: "+currencySymbol.text!+amountLeft)
+    }
+    
+    func checkResults(){
+        if Double(budgetType.text!)! == 0.0{
+            if Double(balance.text!)! < 0.0{
+                budgetNotAchieved()
+            }else{
+                budgetAchieved()
+            }
+        }else{
+            print("Time Not Over Yet")
+        }
+    }
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -113,11 +153,11 @@ class BudgetTab: UIViewController {
             balanceAmount.value = Double(balance.text!)!
             balanceAmount.label = "Balance Left"
             
-            balanceTypeLuxury.value = Double(0)
+            balanceTypeLuxury.value = Double(0.0)
             balanceTypeLuxury.label = "On Luxury"
-            balanceTypeMisc.value = Double(0)
+            balanceTypeMisc.value = Double(0.0)
             balanceTypeMisc.label = "On Misc"
-            balanceTypeEssentials.value = Double(0)
+            balanceTypeEssentials.value = Double(0.0)
             balanceTypeEssentials.label = "On Essentials"
             
             spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
@@ -126,12 +166,12 @@ class BudgetTab: UIViewController {
         balanceChecker = Float(balance.text!)
         status()
         updateChartData()
-        
+        saveUserPreferences()
         
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
-        
+        checkResults()
     }
     
         //MARK:- Taking data prep
@@ -148,7 +188,7 @@ class BudgetTab: UIViewController {
             balanceAmount.value = final
             updateChartData()
         }else{
-            balanceAmount.value = 0
+            balanceAmount.value = 0.0
             updateChartData()
         }
     
@@ -184,10 +224,15 @@ class BudgetTab: UIViewController {
         let chartDataSet = PieChartDataSet(entries: spendingCalculator, label: nil)
         let chartData = PieChartData(dataSet: chartDataSet)
         
+        let format = NumberFormatter()
+        format.numberStyle = .decimal
+        let formatter = DefaultValueFormatter(formatter: format)
+        chartData.setValueFormatter(formatter)
         let colors = [UIColor.purple, UIColor.red, UIColor.blue, UIColor.lightGray]
     
         chartDataSet.colors = colors
         pieChart.data = chartData
+        saveUserPreferences()
     }
     //MARK:- Status Label
      func status(){
@@ -201,7 +246,7 @@ class BudgetTab: UIViewController {
     }
     //MARK:- Date Config
     func dateConfig() {
-        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day! + 1
+        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day!
         budgetType.text = String(differenceBetweenDates)
     }
     

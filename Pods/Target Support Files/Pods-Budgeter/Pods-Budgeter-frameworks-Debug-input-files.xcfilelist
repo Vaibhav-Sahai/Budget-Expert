@@ -1,3 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-Budgeter/Pods-Budgeter-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework
 ${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework
