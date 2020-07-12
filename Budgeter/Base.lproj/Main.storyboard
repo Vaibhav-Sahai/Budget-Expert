@@ -378,14 +378,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-Bm-E5x">
-                                <rect key="frame" x="156" y="185" width="92" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="00000.0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-Bm-E5x">
+                                <rect key="frame" x="156" y="185" width="155" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vZ6-Ub-6xG">
-                                <rect key="frame" x="97" y="185" width="58" height="30"/>
+                                <rect key="frame" x="130" y="185" width="25" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -421,13 +421,13 @@
                             <constraint firstItem="nmz-IX-6XL" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" id="FHm-qp-SdI"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="top" secondItem="sTK-n2-DEt" secondAttribute="top" constant="82" id="FMU-qi-4cw"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="top" secondItem="1Ju-u8-BTj" secondAttribute="bottom" constant="8" id="HEE-QV-DjO"/>
-                            <constraint firstItem="vZ6-Ub-6xG" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="97" id="KMa-jd-Abe"/>
+                            <constraint firstItem="vZ6-Ub-6xG" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="130" id="KMa-jd-Abe"/>
                             <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Jhw-N6-qZj" secondAttribute="trailing" symbolic="YES" id="KqN-z5-4m0"/>
                             <constraint firstItem="WfH-bh-d3J" firstAttribute="leading" secondItem="12K-mc-i0N" secondAttribute="leading" constant="115" id="NOS-xc-jbi"/>
                             <constraint firstItem="WfH-bh-d3J" firstAttribute="centerX" secondItem="nmz-IX-6XL" secondAttribute="centerX" id="Nbq-7Z-JTS"/>
                             <constraint firstItem="vZ6-Ub-6xG" firstAttribute="top" secondItem="Le2-tL-rnT" secondAttribute="bottom" constant="8" id="SH9-6w-fi2"/>
                             <constraint firstItem="WfH-bh-d3J" firstAttribute="top" secondItem="nmz-IX-6XL" secondAttribute="bottom" constant="8" id="V05-RA-cja"/>
-                            <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" secondItem="v5G-Bm-E5x" secondAttribute="trailing" constant="166" id="azq-DX-JzA"/>
+                            <constraint firstItem="12K-mc-i0N" firstAttribute="trailing" secondItem="v5G-Bm-E5x" secondAttribute="trailing" constant="103" id="azq-DX-JzA"/>
                             <constraint firstItem="nmz-IX-6XL" firstAttribute="centerY" secondItem="sTK-n2-DEt" secondAttribute="centerY" constant="69.5" id="bK5-dh-zWo"/>
                             <constraint firstItem="JBp-XB-KZi" firstAttribute="centerY" secondItem="Jhw-N6-qZj" secondAttribute="centerY" id="eie-dW-sro"/>
                             <constraint firstItem="nmz-IX-6XL" firstAttribute="trailing" secondItem="12K-mc-i0N" secondAttribute="trailing" id="faW-sc-uT5"/>
@@ -493,7 +493,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921.739130434783" y="776.08695652173924"/>
+            <point key="canvasLocation" x="2921.739130434783" y="775.44642857142856"/>
         </scene>
         <!--Payment-->
         <scene sceneID="Rjl-Ma-70M">

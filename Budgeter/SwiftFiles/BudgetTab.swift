@@ -21,6 +21,7 @@ class BudgetTab: UIViewController {
     var startingDate: Date?
     var initialDifference: String?
     let rightNow = Date()
+
     //Setting Up Custom Alerts
     /*let noCloseButton = SCLAlertView.SCLAppearance(
         showCloseButton: false
@@ -147,7 +148,6 @@ class BudgetTab: UIViewController {
         print(finalDate)
         
         if defaults.bool(forKey: Keys.pieDataExisting){
-            
             print("Pie Data Exists And Shown")
         }else{
             balanceAmount.value = Double(balance.text!)!
@@ -182,7 +182,7 @@ class BudgetTab: UIViewController {
         let initial = Double(balance.text!)
         let deduction = Double(change!)
         let final = Double(initial! - deduction!)
-        balance.text = String(final)
+        balance.text = String(format: "%.3f", final)
         
         if final > -1{
             balanceAmount.value = final
