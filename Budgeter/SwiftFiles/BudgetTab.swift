@@ -104,7 +104,7 @@ class BudgetTab: UIViewController {
     }
     
     func checkResults(){
-        if Double(budgetType.text!)! == 0.0{
+        if Double(budgetType.text!)! < 0.0{
             if Double(balance.text!)! < 0.0{
                 budgetNotAchieved()
             }else{
