@@ -9,6 +9,7 @@
 import UIKit
 import Charts
 import SCLAlertView
+import UserNotifications
 
 class BudgetTab: UIViewController {
     
@@ -54,11 +55,30 @@ class BudgetTab: UIViewController {
         static let startingdate = "startingDate"
         static let finaldate = "finalDate"
         
+        //MARK:- Saving Notifications
+        static let fiftyNotification = "fiftyNotification"
+        
     }
     //MARK:- Resetting User Defaults
     @IBAction func goToWelcomePage(_ sender: Any) {
         resetDefaults()
     }
+    
+    //MARK:- Notifications
+    func notification(){
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert,.sound,.badge]) { (granted, error) in
+        }
+        let content = UNMutableNotificationContent()
+        content.title = "Testing"
+        content.body = "Testing"
+        content.badge = 1
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let request = UNNotificationRequest(identifier: "budgetSpending", content: content, trigger: trigger)
+        center.add(request, withCompletionHandler: nil)
+    }
+    
     //MARK:- Popup Pressed
     @IBAction func popupPressed(_ sender: Any) {
         saveUserPreferences()
@@ -119,6 +139,7 @@ class BudgetTab: UIViewController {
         super.viewDidAppear(animated)
         dateConfig()
         saveUserPreferences()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         print("Saved Data")
         }
     
@@ -128,6 +149,7 @@ class BudgetTab: UIViewController {
         checkForUserPreference()
         print("Checked Data")
         dateConfig()
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
         if defaults.bool(forKey: Keys.balanceExisting){
             print("Balance Already Saved And Shown")
@@ -172,6 +194,18 @@ class BudgetTab: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
         checkResults()
+        
+        if isKeyPresentInUserDefaults(key: Keys.fiftyNotification){
+            print("50% Notification Already Sent")
+        }else{
+            if Double(balance.text!)! == Double(currentbalance!)!/2{
+                notification()
+                defaults.set(true, forKey: Keys.fiftyNotification)
+            }
+            
+        }
+            
+        
     }
     
         //MARK:- Taking data prep

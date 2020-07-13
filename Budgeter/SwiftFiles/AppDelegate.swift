@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import UserNotifications
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = .black
         UITabBar.appearance().tintColor = .white 
         // Override point for customization after application launch.
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        application.applicationIconBadgeNumber = 0
         return true
     }
 
