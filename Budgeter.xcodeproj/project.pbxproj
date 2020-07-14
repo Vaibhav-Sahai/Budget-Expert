@@ -10,7 +10,6 @@
 		7DF023ED93FC8EEA2A9CBE4F /* Pods_Budgeter_BudgeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFA1867F80F796FB6C58B3 /* Pods_Budgeter_BudgeterUITests.framework */; };
 		8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008FA7223B73BB600D08570 /* BudgetSet.swift */; };
 		80281DA52448F0AD00269AB8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80281DA42448F0AD00269AB8 /* PopUpViewController.swift */; };
-		8042B2FD24BE0C2E008759E4 /* TransactionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8042B2FC24BE0C2E008759E4 /* TransactionLog.swift */; };
 		8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */; };
 		806BC7C223BFB7D900AED0AD /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BC7C123BFB7D900AED0AD /* MainTabBar.swift */; };
 		80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FCC23A4CE2D0056F579 /* AppDelegate.swift */; };
@@ -22,6 +21,7 @@
 		80AC9FEF23A4CE2E0056F579 /* BudgeterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FEE23A4CE2E0056F579 /* BudgeterUITests.swift */; };
 		80C2E94B245DE0F400E06394 /* NotificationExtender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C2E94A245DE0F400E06394 /* NotificationExtender.swift */; };
 		80CF0C1823A8DF7200D0F9F7 /* WelcomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80CF0C1723A8DF7200D0F9F7 /* WelcomePage.swift */; };
+		80FDF67A24BE1E6E0043BC3F /* TransactionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FDF67924BE1E6E0043BC3F /* TransactionLog.swift */; };
 		9AB43D854213DB721A50FBAD /* Pods_BudgeterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70AA2EC1B4E359E05389C1A1 /* Pods_BudgeterTests.framework */; };
 		D9EFA3C3787A301BB84D8E32 /* Pods_Budgeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F56688A94A5A7F8ED257F020 /* Pods_Budgeter.framework */; };
 /* End PBXBuildFile section */
@@ -51,7 +51,6 @@
 		70AA2EC1B4E359E05389C1A1 /* Pods_BudgeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudgeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8008FA7223B73BB600D08570 /* BudgetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSet.swift; sourceTree = "<group>"; };
 		80281DA42448F0AD00269AB8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
-		8042B2FC24BE0C2E008759E4 /* TransactionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLog.swift; sourceTree = "<group>"; };
 		8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTab.swift; sourceTree = "<group>"; };
 		806BC7C123BFB7D900AED0AD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		80AC9FC923A4CE2D0056F579 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +68,7 @@
 		80AC9FF023A4CE2E0056F579 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		80C2E94A245DE0F400E06394 /* NotificationExtender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtender.swift; sourceTree = "<group>"; };
 		80CF0C1723A8DF7200D0F9F7 /* WelcomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomePage.swift; sourceTree = "<group>"; };
+		80FDF67924BE1E6E0043BC3F /* TransactionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLog.swift; sourceTree = "<group>"; };
 		CA3F342A802DC6E59D4E7A1F /* Pods-Budgeter-BudgeterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budgeter-BudgeterUITests.debug.xcconfig"; path = "Target Support Files/Pods-Budgeter-BudgeterUITests/Pods-Budgeter-BudgeterUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D05762C5F650C4C82C824A45 /* Pods-Budgeter-BudgeterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Budgeter-BudgeterUITests.release.xcconfig"; path = "Target Support Files/Pods-Budgeter-BudgeterUITests/Pods-Budgeter-BudgeterUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D3BFFC0649E1D5714CA1D052 /* Pods-BudgeterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgeterTests.release.xcconfig"; path = "Target Support Files/Pods-BudgeterTests/Pods-BudgeterTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -175,13 +175,21 @@
 				80AC9FCE23A4CE2D0056F579 /* SceneDelegate.swift */,
 				80CF0C1723A8DF7200D0F9F7 /* WelcomePage.swift */,
 				8008FA7223B73BB600D08570 /* BudgetSet.swift */,
-				806BC7C123BFB7D900AED0AD /* MainTabBar.swift */,
-				8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */,
-				8042B2FC24BE0C2E008759E4 /* TransactionLog.swift */,
+				80FDF67B24BE1E7C0043BC3F /* Tab Bar And Views */,
 				80281DA42448F0AD00269AB8 /* PopUpViewController.swift */,
 				80C2E94A245DE0F400E06394 /* NotificationExtender.swift */,
 			);
 			path = SwiftFiles;
+			sourceTree = "<group>";
+		};
+		80FDF67B24BE1E7C0043BC3F /* Tab Bar And Views */ = {
+			isa = PBXGroup;
+			children = (
+				806BC7C123BFB7D900AED0AD /* MainTabBar.swift */,
+				8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */,
+				80FDF67924BE1E6E0043BC3F /* TransactionLog.swift */,
+			);
+			path = "Tab Bar And Views";
 			sourceTree = "<group>";
 		};
 		EF8B135BF8DF3892C50F0E20 /* Frameworks */ = {
@@ -440,7 +448,7 @@
 				8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */,
 				80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */,
 				8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */,
-				8042B2FD24BE0C2E008759E4 /* TransactionLog.swift in Sources */,
+				80FDF67A24BE1E6E0043BC3F /* TransactionLog.swift in Sources */,
 				80AC9FCF23A4CE2D0056F579 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

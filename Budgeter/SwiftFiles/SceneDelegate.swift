@@ -36,7 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 
                 let exampleViewController: MainTabBar = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBar") as! MainTabBar
                 
-                let navigationController = UINavigationController.init(rootViewController: exampleViewController)
+                let navigationController = UINavigationController.init(rootViewController: exampleViewController) //example thing is the tab bad
                 
                 window.rootViewController = navigationController
                 self.window = window

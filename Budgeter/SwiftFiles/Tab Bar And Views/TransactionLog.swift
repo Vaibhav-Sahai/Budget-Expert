@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TransactionLog: UITabBarController {
+class TransactionLog: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
