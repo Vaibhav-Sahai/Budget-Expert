@@ -507,7 +507,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gGW-lh-gaM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="gGW-lh-gaM" customClass="TransactionCell" customModule="Budgeter" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGW-lh-gaM" id="iQZ-Tc-6XH">
@@ -571,6 +571,12 @@
                                                 <constraint firstItem="a9e-mO-hEs" firstAttribute="top" secondItem="iQZ-Tc-6XH" secondAttribute="topMargin" constant="9" id="tnH-Y0-4v7"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="currencySymbol" destination="OH6-Hn-cyd" id="CoZ-dq-rkJ"/>
+                                            <outlet property="date" destination="a9e-mO-hEs" id="des-Wy-03S"/>
+                                            <outlet property="itemName" destination="Q9n-9a-4uM" id="Paa-o6-hqq"/>
+                                            <outlet property="price" destination="fYS-YQ-Zf6" id="0QJ-2P-72L"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -585,6 +591,9 @@
                         <viewLayoutGuide key="safeArea" id="hEs-JY-Ed1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" image="Transactions" id="qvt-lc-ZcN"/>
+                    <connections>
+                        <outlet property="tableView" destination="S8c-Bm-Hpi" id="faF-A8-P5w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQS-aB-BB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

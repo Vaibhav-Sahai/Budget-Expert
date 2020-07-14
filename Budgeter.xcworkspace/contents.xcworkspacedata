@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/vaibhav/Desktop/Programming/XCode/Budgeter/Budgeter/SwiftFiles/Tab Bar And Views/TransactionLog.swift">
+   </FileRef>
+   <FileRef
       location = "group:Budgeter.xcodeproj">
    </FileRef>
    <FileRef
