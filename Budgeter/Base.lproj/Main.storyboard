@@ -248,7 +248,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="szL-RS-pCH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496.8000000000002" y="-16.995073891625616"/>
+            <point key="canvasLocation" x="2594" y="-17"/>
         </scene>
         <!--Popup -->
         <scene sceneID="bsZ-fF-D4H">
@@ -498,7 +498,7 @@
         <!--Payment-->
         <scene sceneID="Rjl-Ma-70M">
             <objects>
-                <viewController title="Payment" id="y9p-WR-TX6" sceneMemberID="viewController">
+                <viewController title="Payment" id="y9p-WR-TX6" customClass="TransactionLog" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gNJ-DP-gDW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -10,6 +10,7 @@
 		7DF023ED93FC8EEA2A9CBE4F /* Pods_Budgeter_BudgeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFA1867F80F796FB6C58B3 /* Pods_Budgeter_BudgeterUITests.framework */; };
 		8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008FA7223B73BB600D08570 /* BudgetSet.swift */; };
 		80281DA52448F0AD00269AB8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80281DA42448F0AD00269AB8 /* PopUpViewController.swift */; };
+		8042B2FD24BE0C2E008759E4 /* TransactionLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8042B2FC24BE0C2E008759E4 /* TransactionLog.swift */; };
 		8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */; };
 		806BC7C223BFB7D900AED0AD /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BC7C123BFB7D900AED0AD /* MainTabBar.swift */; };
 		80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80AC9FCC23A4CE2D0056F579 /* AppDelegate.swift */; };
@@ -50,6 +51,7 @@
 		70AA2EC1B4E359E05389C1A1 /* Pods_BudgeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudgeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8008FA7223B73BB600D08570 /* BudgetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSet.swift; sourceTree = "<group>"; };
 		80281DA42448F0AD00269AB8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		8042B2FC24BE0C2E008759E4 /* TransactionLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLog.swift; sourceTree = "<group>"; };
 		8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTab.swift; sourceTree = "<group>"; };
 		806BC7C123BFB7D900AED0AD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		80AC9FC923A4CE2D0056F579 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +177,7 @@
 				8008FA7223B73BB600D08570 /* BudgetSet.swift */,
 				806BC7C123BFB7D900AED0AD /* MainTabBar.swift */,
 				8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */,
+				8042B2FC24BE0C2E008759E4 /* TransactionLog.swift */,
 				80281DA42448F0AD00269AB8 /* PopUpViewController.swift */,
 				80C2E94A245DE0F400E06394 /* NotificationExtender.swift */,
 			);
@@ -437,6 +440,7 @@
 				8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */,
 				80AC9FCD23A4CE2D0056F579 /* AppDelegate.swift in Sources */,
 				8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */,
+				8042B2FD24BE0C2E008759E4 /* TransactionLog.swift in Sources */,
 				80AC9FCF23A4CE2D0056F579 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
