@@ -79,7 +79,6 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         itemEntered.resignFirstResponder()
         return(true)
     }
-    
 }
 //MARK:- Dropdown Stuff
  
@@ -236,6 +235,7 @@ class dropDownView: UIView, UITableViewDelegate, UITableViewDataSource{
         self.tableView.deselectRow(at: indexPath, animated: true)
         
     }
+    
     
 }
 

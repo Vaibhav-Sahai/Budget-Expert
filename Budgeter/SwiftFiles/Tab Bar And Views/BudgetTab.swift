@@ -300,6 +300,7 @@ class BudgetTab: UIViewController {
         tabbar.mainTransactionName = name
         tabbar.mainTransactionType = type
         tabbar.mainCurrencySymbol = currencySymbol.text
+        tabbar.selectedIndex = 1
     }
 
     //MARK:- Chart Updation

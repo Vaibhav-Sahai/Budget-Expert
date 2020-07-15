@@ -17,7 +17,7 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     var transactionCurrency: String?
     var dateInText: String?
     
-    var dataForCell: [String?] = []
+    var dataForCell = [[String?]]()
     let data = ["1","2","3","4"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -48,13 +48,14 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             
             dateInText = formatter.string(from: transactionDate!)
             //print(dateInText)
-            dataForCell.append(contentsOf: createArray())
+            let dataToInsert = createArray()
+            dataForCell.append(dataToInsert)
             print(dataForCell)
         }
     }
     //MARK:- Preparing Data Array
     func createArray() -> [String?]{
-        var dataUnique: [String?] = []
+        var dataUnique = [String?]()
         dataUnique.append(transactionCurrency)
         dataUnique.append(cost)
         dataUnique.append(transactionName)
