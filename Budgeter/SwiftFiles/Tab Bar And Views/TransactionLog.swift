@@ -10,6 +10,13 @@ import UIKit
 
 class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    var cost: String?
+    var transactionName: String?
+    var transactionType: String?
+    var transactionDate: Date?
+    var dateInText: String?
+    
+    let dataForCell: [String] = []
     let data = ["1","2","3","4"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -17,6 +24,30 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let tabbar = tabBarController as! MainTabBar
+        cost = tabbar.mainCost
+        transactionName = tabbar.mainTransactionName
+        transactionType = tabbar.mainTransactionType
+        transactionDate = tabbar.mainTransactionDate
+        
+        print(cost)
+        print(transactionType)
+        print(transactionName)
+        print(transactionDate)
+        
+        if transactionDate != nil{
+            let formatter = DateFormatter()
+            formatter.locale = .current
+            formatter.timeZone = .current
+            formatter.dateFormat = "MMM d, h:mm a"
+            
+            dateInText = formatter.string(from: transactionDate!)
+            print(dateInText)
+        }
     }
     //MARK:- Table View Setup
     

@@ -23,6 +23,8 @@ class BudgetTab: UIViewController {
     var initialDifference: String?
     let rightNow = Date()
     var count: Double?
+    var name: String?
+    var transactionDate: Date?
     //Setting Up Custom Alerts
     /*let noCloseButton = SCLAlertView.SCLAppearance(
         showCloseButton: false
@@ -269,11 +271,14 @@ class BudgetTab: UIViewController {
         status()
         
     }
+    
     @objc func handlePopupClosingType(notification: Notification){
         let typeVC = notification.object as! PopUpViewController
         type = typeVC.button.titleLabel!.text
         amount = typeVC.amountEntered!.text
-    
+        name = typeVC.itemEntered!.text
+        transactionDate = typeVC.dataOfPurchasing
+        
         let cost = Double(amount!)
         
         if type == "Essentials"{
@@ -289,7 +294,11 @@ class BudgetTab: UIViewController {
             updateChartData()
         
         }
-        
+        let tabbar = tabBarController as! MainTabBar
+        tabbar.mainCost = amount
+        tabbar.mainTransactionDate = transactionDate
+        tabbar.mainTransactionName = name
+        tabbar.mainTransactionType = type
     }
 
     //MARK:- Chart Updation

@@ -16,6 +16,13 @@ class MainTabBar: UITabBarController {
     var initialDate: Date?
     var initialDifference: String?
 
+    //Variables To Send
+    var mainCost: String?
+    var mainTransactionName: String?
+    var mainTransactionType: String?
+    var mainTransactionDate: Date?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let viewControllers = viewControllers else{
