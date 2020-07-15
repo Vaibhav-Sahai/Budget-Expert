@@ -39,6 +39,8 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
         transactionType = tabbar.mainTransactionType
         transactionDate = tabbar.mainTransactionDate
         transactionCurrency = tabbar.mainCurrencySymbol
+        
+        
         /*print(cost)
         print(transactionType)
         print(transactionName)
