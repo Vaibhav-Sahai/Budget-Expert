@@ -10,6 +10,7 @@
 		7DF023ED93FC8EEA2A9CBE4F /* Pods_Budgeter_BudgeterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EFA1867F80F796FB6C58B3 /* Pods_Budgeter_BudgeterUITests.framework */; };
 		8008FA7323B73BB600D08570 /* BudgetSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8008FA7223B73BB600D08570 /* BudgetSet.swift */; };
 		80281DA52448F0AD00269AB8 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80281DA42448F0AD00269AB8 /* PopUpViewController.swift */; };
+		804923C824BF723E00837D7B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 804923C624BF723E00837D7B /* DataModel.xcdatamodeld */; };
 		8058FC1123BA5F6F00D7E1C0 /* BudgetTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */; };
 		806BC7C223BFB7D900AED0AD /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 806BC7C123BFB7D900AED0AD /* MainTabBar.swift */; };
 		809EC6B724BE248E005F55FD /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809EC6B624BE248E005F55FD /* TransactionCell.swift */; };
@@ -52,6 +53,7 @@
 		70AA2EC1B4E359E05389C1A1 /* Pods_BudgeterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudgeterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8008FA7223B73BB600D08570 /* BudgetSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetSet.swift; sourceTree = "<group>"; };
 		80281DA42448F0AD00269AB8 /* PopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		804923C724BF723E00837D7B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTab.swift; sourceTree = "<group>"; };
 		806BC7C123BFB7D900AED0AD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		809EC6B624BE248E005F55FD /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				80AC9FD523A4CE2E0056F579 /* Assets.xcassets */,
 				80AC9FD723A4CE2E0056F579 /* LaunchScreen.storyboard */,
 				80AC9FDA23A4CE2E0056F579 /* Info.plist */,
+				804923C624BF723E00837D7B /* DataModel.xcdatamodeld */,
 			);
 			path = Budgeter;
 			sourceTree = "<group>";
@@ -444,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				804923C824BF723E00837D7B /* DataModel.xcdatamodeld in Sources */,
 				806BC7C223BFB7D900AED0AD /* MainTabBar.swift in Sources */,
 				80CF0C1823A8DF7200D0F9F7 /* WelcomePage.swift in Sources */,
 				80281DA52448F0AD00269AB8 /* PopUpViewController.swift in Sources */,
@@ -790,6 +794,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		804923C624BF723E00837D7B /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				804923C724BF723E00837D7B /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 804923C724BF723E00837D7B /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 80AC9FC123A4CE2D0056F579 /* Project object */;
 }

@@ -17,22 +17,27 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     var transactionCurrency: String?
     var dateInText: String?
     
+    let defaults = UserDefaults.standard
     var dataForCell = [[String?]]()
     var count: Int = 0
-    let data = ["1","2","3","4"]
-    let sampleData = [["1"],["2"],["3"]]
-    
+    struct Keys{
+        static let dataToSave = "dataToSave"
+        static let saveState = "saveState"
+    }
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        if defaults.bool(forKey: Keys.saveState){
+            checkUserPreferences()
+        }
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 100
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         //MARK:- Taking Data
         let tabbar = tabBarController as! MainTabBar
         cost = tabbar.mainCost
@@ -54,7 +59,6 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             formatter.dateFormat = "MMM d, h:mm a"
             
             dateInText = formatter.string(from: transactionDate!)
-            //print(dateInText)
             let dataToInsert = createArray()
             count = 0
             for data in dataForCell{
@@ -66,6 +70,7 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             if count == 0{
                 dataForCell.append(dataToInsert)
                 print(dataForCell)
+                saveUserPreferences()
             }
            
         tableView.reloadData()
@@ -119,6 +124,15 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func saveUserPreferences(){
+        defaults.set(dataForCell, forKey: Keys.dataToSave)
+        defaults.set(true, forKey: Keys.saveState)
+    }
+    func checkUserPreferences(){
+        let tempArray = defaults.array(forKey: Keys.dataToSave) as? [[String?]]
+        dataForCell = tempArray!
     }
 }
 
