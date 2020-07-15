@@ -146,12 +146,18 @@ class BudgetTab: UIViewController {
             print("Time Not Over Yet")
         }
     }
+    //MARK:- viewWillAppear
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        dateConfig()
+        saveUserPreferences()
+        print("Preferences Saved")
+    }
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         dateConfig()
         saveUserPreferences()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         print("Saved Data")
         }
     
@@ -161,7 +167,6 @@ class BudgetTab: UIViewController {
         checkForUserPreference()
         print("Checked Data")
         dateConfig()
-        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         
         if defaults.bool(forKey: Keys.balanceExisting){
             print("Balance Already Saved And Shown")

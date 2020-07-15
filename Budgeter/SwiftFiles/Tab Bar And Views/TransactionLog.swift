@@ -18,6 +18,7 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     var dateInText: String?
     
     var dataForCell = [[String?]]()
+    var count: Int = 0
     let data = ["1","2","3","4"]
     let sampleData = [["1"],["2"],["3"]]
     
@@ -55,11 +56,20 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             dateInText = formatter.string(from: transactionDate!)
             //print(dateInText)
             let dataToInsert = createArray()
-            dataForCell.append(dataToInsert)
-            print(dataForCell)
-        }
+            count = 0
+            for data in dataForCell{
+                if data == dataToInsert {
+                    print("Same Arrays, Data Not Inserted")
+                    count = 1
+                }
+            }
+            if count == 0{
+                dataForCell.append(dataToInsert)
+                print(dataForCell)
+            }
+           
         tableView.reloadData()
-        
+        }
     }
     //MARK:- Preparing Data Array
     func createArray() -> [String?]{
