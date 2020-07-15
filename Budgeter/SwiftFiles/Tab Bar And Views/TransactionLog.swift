@@ -19,16 +19,20 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var dataForCell = [[String?]]()
     let data = ["1","2","3","4"]
+    let sampleData = [["1"],["2"],["3"]]
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = 100
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //MARK:- Taking Data
         let tabbar = tabBarController as! MainTabBar
         cost = tabbar.mainCost
         transactionName = tabbar.mainTransactionName
@@ -52,6 +56,8 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             dataForCell.append(dataToInsert)
             print(dataForCell)
         }
+        tableView.reloadData()
+        
     }
     //MARK:- Preparing Data Array
     func createArray() -> [String?]{
@@ -67,13 +73,40 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK:- Table View Setup
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionCell
-        
-        cell.itemName.text = data[indexPath.row]
-        return cell
+        return dataForCell.count
     }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        //MARK:- Customizing Data Output
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TransactionCell
+        
+        let data = dataForCell[indexPath.row]
+        cell.price.text = "Price: "+data[0]!+" "+data[1]!
+        cell.itemName.text = "Item Name: "+data[2]!
+        cell.type.text = "Type: "+data[3]!
+        cell.date.text = data[4]
+        
+        //Coloring Cell
+        if data[3] == "Essentials"{
+            cell.itemName.textColor = UIColor.blue
+            cell.price.textColor = UIColor.blue
+            cell.type.textColor = UIColor.blue
+        }
+        if data[3] == "Luxury"{
+            cell.itemName.textColor = UIColor.red
+            cell.price.textColor = UIColor.red
+            cell.type.textColor = UIColor.red
+        }
+        if data[3] == "Misc"{
+            cell.itemName.textColor = UIColor.darkGray
+            cell.price.textColor = UIColor.darkGray
+            cell.type.textColor = UIColor.darkGray
+        }
+        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
+
