@@ -14,9 +14,10 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     var transactionName: String?
     var transactionType: String?
     var transactionDate: Date?
+    var transactionCurrency: String?
     var dateInText: String?
     
-    let dataForCell: [String] = []
+    var dataForCell: [String?] = []
     let data = ["1","2","3","4"]
     
     @IBOutlet weak var tableView: UITableView!
@@ -33,11 +34,11 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
         transactionName = tabbar.mainTransactionName
         transactionType = tabbar.mainTransactionType
         transactionDate = tabbar.mainTransactionDate
-        
-        print(cost)
+        transactionCurrency = tabbar.mainCurrencySymbol
+        /*print(cost)
         print(transactionType)
         print(transactionName)
-        print(transactionDate)
+        print(transactionDate)*/
         
         if transactionDate != nil{
             let formatter = DateFormatter()
@@ -46,8 +47,21 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             formatter.dateFormat = "MMM d, h:mm a"
             
             dateInText = formatter.string(from: transactionDate!)
-            print(dateInText)
+            //print(dateInText)
+            dataForCell.append(contentsOf: createArray())
+            print(dataForCell)
         }
+    }
+    //MARK:- Preparing Data Array
+    func createArray() -> [String?]{
+        var dataUnique: [String?] = []
+        dataUnique.append(transactionCurrency)
+        dataUnique.append(cost)
+        dataUnique.append(transactionName)
+        dataUnique.append(transactionType)
+        dataUnique.append(dateInText)
+        
+        return dataUnique
     }
     //MARK:- Table View Setup
     

@@ -21,6 +21,7 @@ class MainTabBar: UITabBarController {
     var mainTransactionName: String?
     var mainTransactionType: String?
     var mainTransactionDate: Date?
+    var mainCurrencySymbol: String?
     
     
     override func viewDidLoad() {

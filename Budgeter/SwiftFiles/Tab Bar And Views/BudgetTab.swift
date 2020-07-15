@@ -299,6 +299,7 @@ class BudgetTab: UIViewController {
         tabbar.mainTransactionDate = transactionDate
         tabbar.mainTransactionName = name
         tabbar.mainTransactionType = type
+        tabbar.mainCurrencySymbol = currencySymbol.text
     }
 
     //MARK:- Chart Updation
