@@ -310,7 +310,16 @@ class BudgetTab: UIViewController {
         tabbar.mainCurrencySymbol = currencySymbol.text
         tabbar.selectedIndex = 1
     }
-
+    //MARK:- Disabling Transition Variables After View Dissapears
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        let tabbar = tabBarController as! MainTabBar
+        tabbar.mainCost = "0"
+        tabbar.mainTransactionDate = nil
+        tabbar.mainTransactionName = "0"
+        tabbar.mainTransactionType = "0"
+        tabbar.mainCurrencySymbol = "0"
+    }
     //MARK:- Chart Updation
     func updateChartData(){
         let chartDataSet = PieChartDataSet(entries: spendingCalculator, label: nil)

@@ -46,7 +46,6 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
         transactionDate = tabbar.mainTransactionDate
         transactionCurrency = tabbar.mainCurrencySymbol
         
-        
         /*print(cost)
         print(transactionType)
         print(transactionName)
@@ -60,17 +59,9 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             
             dateInText = formatter.string(from: transactionDate!)
             let dataToInsert = createArray()
-            count = 0
-            for data in dataForCell{
-                if data == dataToInsert {
-                    print("Same Arrays, Data Not Inserted")
-                    count = 1
-                }
-            }
-            if count == 0{
-                dataForCell.append(dataToInsert)
-                saveUserPreferences()
-            }
+
+            dataForCell.append(dataToInsert)
+            saveUserPreferences()
            
         tableView.reloadData()
         }
@@ -124,6 +115,15 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    //Deleting Cell
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            dataForCell.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .top)
+            saveUserPreferences()
+        }
+    }
+    
     
     func saveUserPreferences(){
         defaults.set(dataForCell, forKey: Keys.dataToSave)
