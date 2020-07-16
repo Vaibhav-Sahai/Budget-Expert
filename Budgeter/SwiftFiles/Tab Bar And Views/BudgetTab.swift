@@ -189,6 +189,10 @@ class BudgetTab: UIViewController {
         if defaults.bool(forKey: Keys.pieDataExisting){
             print("Pie Data Exists And Shown")
         }else{
+            let initialBudget = Double(currentbalance!)!
+            if balanceTypeLuxury.value < 0.10 * initialBudget {
+                
+            }
             balanceAmount.value = Double(balance.text!)!
             balanceAmount.label = "Balance Left"
             
@@ -210,8 +214,6 @@ class BudgetTab: UIViewController {
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveDateEntered, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveItemNameEntered, object: nil)
         checkResults()
         
         
@@ -330,7 +332,6 @@ class BudgetTab: UIViewController {
         let formatter = DefaultValueFormatter(formatter: format)
         chartData.setValueFormatter(formatter)
         let colors = [UIColor.purple, UIColor.red, UIColor.blue, UIColor.lightGray]
-    
         chartDataSet.colors = colors
         pieChart.data = chartData
         saveUserPreferences()
