@@ -43,20 +43,37 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     func validateFields()-> String{
         if amountEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
             itemEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""  ||
-        button.titleLabel?.text == "Click Here To Select Transaction Type" {
-            return "Fail"
-
+            button.titleLabel?.text == "Click Here To Select Transaction Type" {
+                return "Fail"
         } else{
             return "Success"
         }
             
     }
     
+    func checkAmountSyntax()-> String{
+        var count:Int = 0
+        for char in amountEntered.text!{
+            print(char)
+            if char == "."{
+                count += 1
+            }
+        }
+        if count > 1{
+            return "Fail"
+        }else{
+            return "Success"
+        }
+        
+    }
+    
     //MARK:- Transfer Data
     @IBAction func transactionDonePressed(_ sender: Any) {
-        if validateFields() == "Success"{
+        if validateFields() == "Success" && checkAmountSyntax() == "Success"{
             NotificationCenter.default.post(name: .saveAmountEntered, object: self)
             NotificationCenter.default.post(name: .saveTypeEntered, object: self)
+            NotificationCenter.default.post(name: .saveItemNameEntered, object: self)
+            NotificationCenter.default.post(name: .saveDateEntered, object: self)
             dismiss(animated: true)
         } else{
             errorLabel.alpha = 1

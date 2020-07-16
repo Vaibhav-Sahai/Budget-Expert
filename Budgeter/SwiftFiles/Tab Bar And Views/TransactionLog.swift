@@ -69,7 +69,6 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             if count == 0{
                 dataForCell.append(dataToInsert)
-                print(dataForCell)
                 saveUserPreferences()
             }
            

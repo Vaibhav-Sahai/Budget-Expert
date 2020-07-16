@@ -210,7 +210,10 @@ class BudgetTab: UIViewController {
         //MARK:- Taking data from popup
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveDateEntered, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveItemNameEntered, object: nil)
         checkResults()
+        
         
         if isKeyPresentInUserDefaults(key: Keys.fiftyNotification){
             print("50% Notification Already Sent")
@@ -262,7 +265,7 @@ class BudgetTab: UIViewController {
         let initial = Double(balance.text!)
         let deduction = Double(change!)
         let final = Double(initial! - deduction!)
-        balance.text = String(format: "%.3f", final)
+        balance.text = String(format: "%.2f", final)
         
         if final > -1{
             balanceAmount.value = final
