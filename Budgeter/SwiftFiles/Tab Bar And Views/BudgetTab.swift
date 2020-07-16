@@ -190,18 +190,47 @@ class BudgetTab: UIViewController {
             print("Pie Data Exists And Shown")
         }else{
             let initialBudget = Double(currentbalance!)!
-            if balanceTypeLuxury.value < 0.10 * initialBudget {
-                
-            }
             balanceAmount.value = Double(balance.text!)!
             balanceAmount.label = "Balance Left"
             
-            balanceTypeLuxury.value = Double(0.0)
-            balanceTypeLuxury.label = "On Luxury"
-            balanceTypeMisc.value = Double(0.0)
-            balanceTypeMisc.label = "On Misc"
-            balanceTypeEssentials.value = Double(0.0)
-            balanceTypeEssentials.label = "On Essentials"
+            balanceTypeLuxury.value = Double(0)
+            balanceTypeMisc.value = Double(0)
+            balanceTypeEssentials.value = Double(0)
+            
+            
+            if balanceTypeLuxury.value > 0.10 * initialBudget{
+                balanceTypeLuxury.label = "On Luxury"
+                balanceTypeMisc.label = "On Misc"
+                balanceTypeEssentials.label = "On Essentials"
+                
+            }else if balanceTypeEssentials.value > 0.10 * initialBudget{
+                balanceTypeLuxury.label = "On Luxury"
+                balanceTypeMisc.label = "On Misc"
+                balanceTypeEssentials.label = "On Essentials"
+                
+            }else if balanceTypeMisc.value > 0.10 * initialBudget{
+                balanceTypeLuxury.label = "On Luxury"
+                balanceTypeMisc.label = "On Misc"
+                balanceTypeEssentials.label = "On Essentials"
+            }else{
+                balanceTypeLuxury.label = ""
+                balanceTypeMisc.label = ""
+                balanceTypeEssentials.label = ""
+            }
+            
+            //Legend Config
+            let legendEntry1 = LegendEntry(label: "On Balance", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.purple)
+            
+            let legendEntry2 = LegendEntry(label: "On Luxury", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.red)
+            
+            let legendEntry3 = LegendEntry(label: "On Essentials", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.blue)
+            
+            let legendEntry4 = LegendEntry(label: "On Misc", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.gray)
+            
+            let legendArray = [legendEntry1,legendEntry2,legendEntry3,legendEntry4]
+            
+            pieChart.legend.setCustom(entries: legendArray)
+
             
             spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
         }
@@ -334,6 +363,27 @@ class BudgetTab: UIViewController {
         let colors = [UIColor.purple, UIColor.red, UIColor.blue, UIColor.lightGray]
         chartDataSet.colors = colors
         pieChart.data = chartData
+        
+        let initialBudget = Double(currentbalance!)!
+        if balanceTypeLuxury.value > 0.10 * initialBudget{
+            balanceTypeLuxury.label = "On Luxury"
+            balanceTypeMisc.label = "On Misc"
+            balanceTypeEssentials.label = "On Essentials"
+            
+        }else if balanceTypeEssentials.value > 0.10 * initialBudget{
+            balanceTypeLuxury.label = "On Luxury"
+            balanceTypeMisc.label = "On Misc"
+            balanceTypeEssentials.label = "On Essentials"
+            
+        }else if balanceTypeMisc.value > 0.10 * initialBudget{
+            balanceTypeLuxury.label = "On Luxury"
+            balanceTypeMisc.label = "On Misc"
+            balanceTypeEssentials.label = "On Essentials"
+        }else{
+            balanceTypeLuxury.label = ""
+            balanceTypeMisc.label = ""
+            balanceTypeEssentials.label = ""
+        }
         saveUserPreferences()
     }
     //MARK:- Status Label
@@ -415,15 +465,44 @@ class BudgetTab: UIViewController {
             //Assigning Data
             balanceAmount.value = balanceAmountR
             balanceAmount.label = "Balance Left"
-            
             balanceTypeLuxury.value = balanceTypeLuxuryR
-            balanceTypeLuxury.label = "On Luxury"
-            
             balanceTypeMisc.value = balanceTypeMiscR
-            balanceTypeMisc.label = "On Misc"
-            
             balanceTypeEssentials.value = balanceTypeEssentialsR
-            balanceTypeEssentials.label = "On Essentials"
+            let currentBalanceR = defaults.string(forKey: Keys.currentBalance)
+            currentbalance = currentBalanceR
+            
+            let initialBudget = Double(currentbalance!)!
+            if balanceTypeLuxury.value > 0.10 * initialBudget{
+                balanceTypeLuxury.label = "On Luxury"
+                balanceTypeMisc.label = "On Misc"
+                balanceTypeEssentials.label = "On Essentials"
+                
+            }else if balanceTypeEssentials.value > 0.10 * initialBudget{
+                balanceTypeLuxury.label = "On Luxury"
+                balanceTypeMisc.label = "On Misc"
+                balanceTypeEssentials.label = "On Essentials"
+                
+            }else if balanceTypeMisc.value > 0.10 * initialBudget{
+                balanceTypeLuxury.label = "On Luxury"
+                balanceTypeMisc.label = "On Misc"
+                balanceTypeEssentials.label = "On Essentials"
+            }else{
+                balanceTypeLuxury.label = ""
+                balanceTypeMisc.label = ""
+                balanceTypeEssentials.label = ""
+            }
+            //Legend Config
+            let legendEntry1 = LegendEntry(label: "On Balance", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.purple)
+            
+            let legendEntry2 = LegendEntry(label: "On Luxury", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.red)
+            
+            let legendEntry3 = LegendEntry(label: "On Essentials", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.blue)
+            
+            let legendEntry4 = LegendEntry(label: "On Misc", form: .default, formSize: .nan, formLineWidth: .nan, formLineDashPhase: .nan, formLineDashLengths: .none, formColor: UIColor.gray)
+            
+            let legendArray = [legendEntry1,legendEntry2,legendEntry3,legendEntry4]
+            
+            pieChart.legend.setCustom(entries: legendArray)
             
             spendingCalculator = [balanceAmount,balanceTypeLuxury,balanceTypeEssentials,balanceTypeMisc]
         }else{
