@@ -1,23 +1,23 @@
 {
   "images" : [
     {
+      "filename" : "icons8-cent-2.png",
       "idiom" : "universal",
-      "filename" : "icons8-money_bag_shekel_.png",
       "scale" : "1x"
     },
     {
+      "filename" : "icons8-cent-1.png",
       "idiom" : "universal",
-      "filename" : "icons8-money_bag_shekel_-2.png",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8-cent.png",
       "idiom" : "universal",
-      "filename" : "icons8-money_bag_shekel_-1.png",
       "scale" : "3x"
     }
   ],
   "info" : {
-    "version" : 1,
-    "author" : "xcode"
+    "author" : "xcode",
+    "version" : 1
   }
 }

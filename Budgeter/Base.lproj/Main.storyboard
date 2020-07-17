@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fvV-47-Phe">
-    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +12,14 @@
             <objects>
                 <viewController storyboardIdentifier="WelcomePage" id="Thq-UR-amE" customClass="WelcomePage" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tNH-9B-oE7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="YkS-kZ-zvR" userLabel="PageBkgrd">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LSd-CH-Spp" userLabel="Continue Button">
-                                <rect key="frame" x="84" y="433" width="254" height="30"/>
+                                <rect key="frame" x="84" y="353" width="254" height="30"/>
                                 <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Continue To The App">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -29,7 +29,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Budgeter!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJi-F4-wXh" userLabel="Welcome Label">
-                                <rect key="frame" x="74.666666666666686" y="296" width="265" height="85"/>
+                                <rect key="frame" x="74.666666666666686" y="216" width="265" height="85"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,18 +91,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tdr-M8-f1w" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698.5507246376812" y="-15.401785714285714"/>
+            <point key="canvasLocation" x="1704" y="-15"/>
         </scene>
         <!--Budget Set-->
         <scene sceneID="lc0-Mc-CuG">
             <objects>
                 <viewController id="EK4-7a-Yvx" userLabel="Budget Set" customClass="BudgetSet" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qpz-fk-Ghb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-Vg-Dzu" userLabel="BudgetSet">
-                                <rect key="frame" x="16" y="298" width="382" height="60"/>
+                                <rect key="frame" x="16" y="254" width="382" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="QVp-FI-0Qx"/>
                                 </constraints>
@@ -110,7 +110,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Enter Number Of Days" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mca-HF-lqP" userLabel="DaysLabel">
-                                <rect key="frame" x="49" y="366" width="316" height="60"/>
+                                <rect key="frame" x="49" y="322" width="316" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="a09-0E-BUQ"/>
                                 </constraints>
@@ -126,7 +126,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr3-Mv-4Xi" userLabel="CurrencySelector">
-                                <rect key="frame" x="47" y="142" width="320" height="130"/>
+                                <rect key="frame" x="47" y="98" width="320" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="R31-VY-3rQ"/>
                                     <constraint firstAttribute="width" constant="320" id="XaF-fr-hN8"/>
@@ -137,7 +137,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-xx-vha">
-                                <rect key="frame" x="106" y="806" width="202" height="36"/>
+                                <rect key="frame" x="106" y="680" width="202" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Proceed To Home Page"/>
@@ -146,7 +146,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Number Of Days" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayt-ll-UeI" userLabel="DaysSet">
-                                <rect key="frame" x="16" y="434" width="382" height="60"/>
+                                <rect key="frame" x="16" y="390" width="382" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="O1j-1b-Jfs"/>
                                 </constraints>
@@ -154,7 +154,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Fill All Fields" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPT-XH-z6c" userLabel="Error Label">
-                                <rect key="frame" x="132.66666666666666" y="777" width="148.99999999999997" height="21"/>
+                                <rect key="frame" x="132.66666666666666" y="651" width="148.99999999999997" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="oeS-sT-5VS"/>
                                 </constraints>
@@ -163,7 +163,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Your Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUR-f1-kyG" userLabel="BudgetSetLabel">
-                                <rect key="frame" x="-4" y="64" width="423" height="47"/>
+                                <rect key="frame" x="-4" y="20" width="423" height="47"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -212,11 +212,11 @@
             <objects>
                 <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDe-p6-Xnl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15U-HJ-V2T">
-                                <rect key="frame" x="11" y="310" width="392" height="276"/>
+                                <rect key="frame" x="11" y="230" width="392" height="276"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evX-8V-iAZ" userLabel="TransactionLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="61"/>
@@ -292,11 +292,11 @@
             <objects>
                 <viewController storyboardIdentifier="BudgetTab" id="je1-fX-CiD" customClass="BudgetTab" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTK-n2-DEt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JBp-XB-KZi">
-                                <rect key="frame" x="20.000000000000007" y="82" width="106.66666666666669" height="25.666666666666671"/>
+                                <rect key="frame" x="20.000000000000007" y="38" width="106.66666666666669" height="25.666666666666671"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25.670000000000002" id="MlR-KT-2OG"/>
                                     <constraint firstAttribute="width" constant="106.67" id="WyX-0n-aCs"/>
@@ -306,7 +306,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balance Left:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Le2-tL-rnT">
-                                <rect key="frame" x="126.66666666666669" y="148" width="161" height="29"/>
+                                <rect key="frame" x="126.66666666666669" y="104" width="161" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="qa9-0x-qh8"/>
                                     <constraint firstAttribute="width" constant="161" id="rwK-aO-xCa"/>
@@ -316,7 +316,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="0000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jhw-N6-qZj">
-                                <rect key="frame" x="131.66666666666666" y="82" width="55" height="27"/>
+                                <rect key="frame" x="131.66666666666666" y="38" width="55" height="27"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="nqn-iG-l0K"/>
                                     <constraint firstAttribute="width" constant="55" id="zzk-Pg-mSL"/>
@@ -326,7 +326,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AED" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZ6-Ub-6xG">
-                                <rect key="frame" x="90" y="185" width="51" height="30"/>
+                                <rect key="frame" x="90" y="141" width="51" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="51" id="XWN-oM-sdp"/>
                                     <constraint firstAttribute="height" constant="30" id="jJf-zE-QGE"/>
@@ -336,17 +336,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmz-IX-6XL" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="223" width="414" height="545"/>
+                                <rect key="frame" x="0.0" y="179" width="414" height="463"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're Over Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WfH-bh-d3J" userLabel="Status Alert">
-                                <rect key="frame" x="132.66666666666666" y="776" width="148.99999999999997" height="21"/>
+                                <rect key="frame" x="132.66666666666666" y="650" width="148.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="px2-EY-nfS" userLabel="popupInitiater">
-                                <rect key="frame" x="355" y="62" width="30" height="66"/>
+                                <rect key="frame" x="355" y="18" width="30" height="66"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="NdP-u2-55U"/>
                                     <constraint firstAttribute="height" constant="66" id="Oby-9Z-hDt"/>
@@ -359,7 +359,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="00000.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-Bm-E5x">
-                                <rect key="frame" x="150" y="185" width="122" height="30"/>
+                                <rect key="frame" x="150" y="141" width="122" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Axr-9I-fXd"/>
                                     <constraint firstAttribute="width" constant="122" id="Sjh-EY-mi3"/>
@@ -369,7 +369,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ju-u8-BTj">
-                                <rect key="frame" x="160.66666666666666" y="44" width="92.666666666666657" height="30"/>
+                                <rect key="frame" x="160.66666666666666" y="0.0" width="92.666666666666657" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92.670000000000002" id="4Iq-XJ-L4d"/>
                                     <constraint firstAttribute="height" constant="30" id="avF-n3-eMN"/>
@@ -432,11 +432,11 @@
             <objects>
                 <viewController id="7wQ-3S-xR2" customClass="TransactionLog" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LmV-2U-4Ty">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-Bm-Hpi" userLabel="Transaction Table">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="gGW-lh-gaM" customClass="TransactionCell" customModule="Budgeter" customModuleProvider="target">
@@ -570,8 +570,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BudgetIcons" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="BudgetIcons" width="25" height="25"/>
         <image name="Gradient" width="414" height="896"/>
-        <image name="Transactions" width="33.333332061767578" height="33.333332061767578"/>
+        <image name="Transactions" width="25" height="25"/>
     </resources>
 </document>

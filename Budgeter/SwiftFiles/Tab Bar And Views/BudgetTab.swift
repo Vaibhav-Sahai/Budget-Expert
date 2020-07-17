@@ -34,8 +34,7 @@ class BudgetTab: UIViewController {
     let alertBudgetNotReached = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     
     let warnBudget = SCLAlertView()
-    
-    
+        
     //MARK:- User Defaults Variables
     let defaults = UserDefaults.standard
     struct Keys {
@@ -152,6 +151,9 @@ class BudgetTab: UIViewController {
         dateConfig()
         saveUserPreferences()
         print("Preferences Saved")
+        let application = UIApplication.shared
+        application.applicationIconBadgeNumber = 0
+        
     }
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
@@ -159,6 +161,49 @@ class BudgetTab: UIViewController {
         dateConfig()
         saveUserPreferences()
         print("Saved Data")
+        let application = UIApplication.shared
+        application.applicationIconBadgeNumber = 0
+        
+        //Notification Stuff
+        if isKeyPresentInUserDefaults(key: Keys.fiftyNotification){
+            print("50% Notification Already Sent")
+        }else{
+            if Double(balance.text!)! == Double(currentbalance!)!/2{
+                notification(x: "50%")
+                budgetWarnings(x: "50%")
+                defaults.set(true, forKey: Keys.fiftyNotification)
+            }
+        }
+        
+        if isKeyPresentInUserDefaults(key: Keys.seventyFiveNotification){
+            print("75% Notification Already Sent")
+        }else{
+            if Double(balance.text!)! == 0.25 * Double(currentbalance!)!{
+                notification(x: "75%")
+                budgetWarnings(x: "75%")
+                defaults.set(true, forKey: Keys.seventyFiveNotification)
+            }
+        }
+        
+        if isKeyPresentInUserDefaults(key: Keys.nintyNotification){
+            print("90% Notification Already Sent")
+        }else{
+            if Double(balance.text!)! == 0.10 * Double(currentbalance!)!{
+                notification(x: "90%")
+                budgetWarnings(x: "90%")
+                defaults.set(true, forKey: Keys.nintyNotification)
+            }
+        }
+        
+        if isKeyPresentInUserDefaults(key: Keys.nintyFiveNotification){
+            print("95% Notification Already Sent")
+        }else{
+            if Double(balance.text!)! == 0.05 * Double(currentbalance!)!{
+                notification(x: "95%")
+                budgetWarnings(x: "95%")
+                defaults.set(true, forKey: Keys.nintyFiveNotification)
+            }
+        }
         }
     
     //MARK:- viewDidLoad
@@ -244,47 +289,6 @@ class BudgetTab: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingAmount), name: .saveAmountEntered, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(handlePopupClosingType), name: .saveTypeEntered, object: nil)
         checkResults()
-        
-        
-        if isKeyPresentInUserDefaults(key: Keys.fiftyNotification){
-            print("50% Notification Already Sent")
-        }else{
-            if Double(balance.text!)! == Double(currentbalance!)!/2{
-                notification(x: "50%")
-                budgetWarnings(x: "50%")
-                defaults.set(true, forKey: Keys.fiftyNotification)
-            }
-        }
-        
-        if isKeyPresentInUserDefaults(key: Keys.seventyFiveNotification){
-            print("75% Notification Already Sent")
-        }else{
-            if Double(balance.text!)! == 0.25 * Double(currentbalance!)!{
-                notification(x: "75%")
-                budgetWarnings(x: "75%")
-                defaults.set(true, forKey: Keys.seventyFiveNotification)
-            }
-        }
-        
-        if isKeyPresentInUserDefaults(key: Keys.nintyNotification){
-            print("90% Notification Already Sent")
-        }else{
-            if Double(balance.text!)! == 0.10 * Double(currentbalance!)!{
-                notification(x: "90%")
-                budgetWarnings(x: "90%")
-                defaults.set(true, forKey: Keys.nintyNotification)
-            }
-        }
-        
-        if isKeyPresentInUserDefaults(key: Keys.nintyFiveNotification){
-            print("95% Notification Already Sent")
-        }else{
-            if Double(balance.text!)! == 0.05 * Double(currentbalance!)!{
-                notification(x: "95%")
-                budgetWarnings(x: "95%")
-                defaults.set(true, forKey: Keys.nintyFiveNotification)
-            }
-        }
         
     }
     
