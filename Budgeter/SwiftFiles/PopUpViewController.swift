@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SCLAlertView
 
 class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
@@ -15,6 +16,8 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     var dataOfPurchasing = Date()
     var button = dropDownBtn()
 
+    //Alert View
+    let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,11 +73,21 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     //MARK:- Transfer Data
     @IBAction func transactionDonePressed(_ sender: Any) {
         if validateFields() == "Success" && checkAmountSyntax() == "Success"{
-            NotificationCenter.default.post(name: .saveAmountEntered, object: self)
-            NotificationCenter.default.post(name: .saveTypeEntered, object: self)
-            NotificationCenter.default.post(name: .saveItemNameEntered, object: self)
-            NotificationCenter.default.post(name: .saveDateEntered, object: self)
-            dismiss(animated: true)
+            alert.addButton("Yes"){
+                NotificationCenter.default.post(name: .saveAmountEntered, object: self)
+                NotificationCenter.default.post(name: .saveTypeEntered, object: self)
+                NotificationCenter.default.post(name: .saveItemNameEntered, object: self)
+                NotificationCenter.default.post(name: .saveDateEntered, object: self)
+                self.dismiss(animated: true)
+            }
+
+            alert.addButton("No"){
+                self.dismiss(animated: true)
+            }
+            let itemName = itemEntered.text!
+            let buttonText = button.titleLabel!.text!
+            alert.showInfo("Confirm Transaction", subTitle: "Details\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+amountEntered.text!)
+            
         } else{
             errorLabel.alpha = 1
         }
