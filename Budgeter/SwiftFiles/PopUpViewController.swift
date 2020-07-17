@@ -13,6 +13,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var amountEntered: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var itemEntered: UITextField!
+    var currencyText: String?
     var dataOfPurchasing = Date()
     var button = dropDownBtn()
 
@@ -86,7 +87,9 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             }
             let itemName = itemEntered.text!
             let buttonText = button.titleLabel!.text!
-            alert.showInfo("Confirm Transaction", subTitle: "Details\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+amountEntered.text!)
+            //This Kills Compiler
+            let displayText = "Details:\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+amountEntered.text!
+            alert.showInfo("Confirm Transaction", subTitle: displayText)
             
         } else{
             errorLabel.alpha = 1
