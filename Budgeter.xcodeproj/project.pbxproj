@@ -57,7 +57,7 @@
 		8058FC1023BA5F6F00D7E1C0 /* BudgetTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTab.swift; sourceTree = "<group>"; };
 		806BC7C123BFB7D900AED0AD /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		809EC6B624BE248E005F55FD /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
-		80AC9FC923A4CE2D0056F579 /* Budgeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Budgeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		80AC9FC923A4CE2D0056F579 /* Budgeter Expert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budgeter Expert.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80AC9FCC23A4CE2D0056F579 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80AC9FCE23A4CE2D0056F579 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		80AC9FD323A4CE2D0056F579 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -135,7 +135,7 @@
 		80AC9FCA23A4CE2D0056F579 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				80AC9FC923A4CE2D0056F579 /* Budgeter.app */,
+				80AC9FC923A4CE2D0056F579 /* Budgeter Expert.app */,
 				80AC9FDF23A4CE2E0056F579 /* BudgeterTests.xctest */,
 				80AC9FEA23A4CE2E0056F579 /* BudgeterUITests.xctest */,
 			);
@@ -227,7 +227,7 @@
 			);
 			name = Budgeter;
 			productName = Budgeter;
-			productReference = 80AC9FC923A4CE2D0056F579 /* Budgeter.app */;
+			productReference = 80AC9FC923A4CE2D0056F579 /* Budgeter Expert.app */;
 			productType = "com.apple.product-type.application";
 		};
 		80AC9FDE23A4CE2E0056F579 /* BudgeterTests */ = {
@@ -632,6 +632,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = T3786CCD4L;
 				INFOPLIST_FILE = Budgeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -639,8 +640,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.vaibhav;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Budgeter Expert";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -652,6 +654,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = T3786CCD4L;
 				INFOPLIST_FILE = Budgeter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -659,8 +662,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.vaibhav;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Budgeter Expert";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

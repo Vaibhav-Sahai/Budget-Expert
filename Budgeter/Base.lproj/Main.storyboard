@@ -10,7 +10,7 @@
         <!--Welcome Page-->
         <scene sceneID="Pd4-Z4-UWb">
             <objects>
-                <viewController storyboardIdentifier="WelcomePage" id="Thq-UR-amE" customClass="WelcomePage" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomePage" id="Thq-UR-amE" customClass="WelcomePage" customModule="Budgeter_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tNH-9B-oE7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,7 @@
                                     <segue destination="EK4-7a-Yvx" kind="show" id="YUA-il-KAl"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Budgeter!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJi-F4-wXh" userLabel="Welcome Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome To Budget Expert!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJi-F4-wXh" userLabel="Welcome Label">
                                 <rect key="frame" x="74.666666666666686" y="296" width="265" height="85"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -96,7 +96,7 @@
         <!--Budget Set-->
         <scene sceneID="lc0-Mc-CuG">
             <objects>
-                <viewController id="EK4-7a-Yvx" userLabel="Budget Set" customClass="BudgetSet" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EK4-7a-Yvx" userLabel="Budget Set" customClass="BudgetSet" customModule="Budgeter_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qpz-fk-Ghb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -215,7 +215,7 @@
         <!--Popup -->
         <scene sceneID="bsZ-fF-D4H">
             <objects>
-                <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budgeter_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDe-p6-Xnl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,7 +295,7 @@
         <!--Budget-->
         <scene sceneID="aLm-4n-bk4">
             <objects>
-                <viewController storyboardIdentifier="BudgetTab" id="je1-fX-CiD" customClass="BudgetTab" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BudgetTab" id="je1-fX-CiD" customClass="BudgetTab" customModule="Budgeter_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTK-n2-DEt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -435,7 +435,7 @@
         <!--Transactions-->
         <scene sceneID="svE-vi-1YK">
             <objects>
-                <viewController id="7wQ-3S-xR2" customClass="TransactionLog" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7wQ-3S-xR2" customClass="TransactionLog" customModule="Budgeter_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LmV-2U-4Ty">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,7 +444,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="gGW-lh-gaM" customClass="TransactionCell" customModule="Budgeter" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="gGW-lh-gaM" customClass="TransactionCell" customModule="Budgeter_Expert" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gGW-lh-gaM" id="iQZ-Tc-6XH">
@@ -536,7 +536,7 @@
         <!--MainTabBar-->
         <scene sceneID="kzo-zN-7Fu">
             <objects>
-                <tabBarController storyboardIdentifier="MainTabBar" title="MainTabBar" id="4v3-8k-Q42" customClass="MainTabBar" customModule="Budgeter" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBar" title="MainTabBar" id="4v3-8k-Q42" customClass="MainTabBar" customModule="Budgeter_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="mLM-xZ-qDv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="0nI-pN-xLN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>

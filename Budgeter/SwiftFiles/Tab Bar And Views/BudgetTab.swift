@@ -243,17 +243,17 @@ class BudgetTab: UIViewController {
             balanceTypeEssentials.value = Double(0)
             
             
-            if balanceTypeLuxury.value > 0.10 * initialBudget{
+            if balanceTypeLuxury.value > 0.10 * initialBudget || Double(balance.text!)! < 0.90 * initialBudget{
                 balanceTypeLuxury.label = "On Luxury"
                 balanceTypeMisc.label = "On Misc"
                 balanceTypeEssentials.label = "On Essentials"
                 
-            }else if balanceTypeEssentials.value > 0.10 * initialBudget{
+            }else if balanceTypeEssentials.value > 0.10 * initialBudget || Double(balance.text!)! < 0.90 * initialBudget{
                 balanceTypeLuxury.label = "On Luxury"
                 balanceTypeMisc.label = "On Misc"
                 balanceTypeEssentials.label = "On Essentials"
                 
-            }else if balanceTypeMisc.value > 0.10 * initialBudget{
+            }else if balanceTypeMisc.value > 0.10 * initialBudget || Double(balance.text!)! < 0.90 * initialBudget{
                 balanceTypeLuxury.label = "On Luxury"
                 balanceTypeMisc.label = "On Misc"
                 balanceTypeEssentials.label = "On Essentials"
@@ -369,17 +369,17 @@ class BudgetTab: UIViewController {
         pieChart.data = chartData
         
         let initialBudget = Double(currentbalance!)!
-        if balanceTypeLuxury.value > 0.10 * initialBudget{
+        if balanceTypeLuxury.value > 0.10 * initialBudget || Double(balance.text!)! < 0.90 * initialBudget{
             balanceTypeLuxury.label = "On Luxury"
             balanceTypeMisc.label = "On Misc"
             balanceTypeEssentials.label = "On Essentials"
             
-        }else if balanceTypeEssentials.value > 0.10 * initialBudget{
+        }else if balanceTypeEssentials.value > 0.10 * initialBudget || Double(balance.text!)! < 0.90 * initialBudget{
             balanceTypeLuxury.label = "On Luxury"
             balanceTypeMisc.label = "On Misc"
             balanceTypeEssentials.label = "On Essentials"
             
-        }else if balanceTypeMisc.value > 0.10 * initialBudget{
+        }else if balanceTypeMisc.value > 0.10 * initialBudget || Double(balance.text!)! < 0.90 * initialBudget{
             balanceTypeLuxury.label = "On Luxury"
             balanceTypeMisc.label = "On Misc"
             balanceTypeEssentials.label = "On Essentials"
