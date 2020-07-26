@@ -425,6 +425,7 @@
                         <outlet property="budgetType" destination="Jhw-N6-qZj" id="6Rh-xs-K7w"/>
                         <outlet property="currencySymbol" destination="vZ6-Ub-6xG" id="uAP-gu-sXS"/>
                         <outlet property="pieChart" destination="nmz-IX-6XL" id="ONQ-zf-Y6a"/>
+                        <outlet property="resetBudget" destination="1Ju-u8-BTj" id="Rft-ts-o6p"/>
                         <outlet property="statusLabel" destination="WfH-bh-d3J" id="ZaV-Lf-com"/>
                     </connections>
                 </viewController>

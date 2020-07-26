@@ -25,6 +25,7 @@ class BudgetTab: UIViewController {
     var count: Double?
     var name: String?
     var transactionDate: Date?
+    @IBOutlet weak var resetBudget: UIButton!
     //Setting Up Custom Alerts
     /*let noCloseButton = SCLAlertView.SCLAppearance(
         showCloseButton: false
@@ -160,6 +161,7 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         dateConfig()
         saveUserPreferences()
         print("Saved Data")
@@ -211,6 +213,9 @@ class BudgetTab: UIViewController {
     //MARK:- viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        resetBudget.titleLabel!.numberOfLines = 1
+        resetBudget.titleLabel!.adjustsFontSizeToFitWidth = true
+        resetBudget.titleLabel!.minimumScaleFactor = 0.5
         checkForUserPreference()
         print("Checked Data")
         dateConfig()
