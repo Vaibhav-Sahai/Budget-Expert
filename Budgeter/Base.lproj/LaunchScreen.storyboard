@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Gradient" translatesAutoresizingMaskIntoConstraints="NO" id="R4U-IO-GCC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="428" height="896"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -24,7 +24,7 @@
                             <constraint firstItem="R4U-IO-GCC" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="MmK-eq-xT3"/>
                             <constraint firstItem="R4U-IO-GCC" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="mlp-BX-gbN"/>
                             <constraint firstAttribute="bottom" secondItem="R4U-IO-GCC" secondAttribute="bottom" id="pBU-XS-q4N"/>
-                            <constraint firstAttribute="trailing" secondItem="R4U-IO-GCC" secondAttribute="trailing" id="ubv-Sj-Q55"/>
+                            <constraint firstAttribute="trailing" secondItem="R4U-IO-GCC" secondAttribute="trailing" constant="-14" id="ubv-Sj-Q55"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

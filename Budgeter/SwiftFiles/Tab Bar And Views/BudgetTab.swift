@@ -154,6 +154,8 @@ class BudgetTab: UIViewController {
         let application = UIApplication.shared
         application.applicationIconBadgeNumber = 0
         
+        let tabbar = tabBarController as! MainTabBar
+        tabbar.mainCurrencySymbol = currencySymbol.text
     }
     //MARK:- viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
@@ -212,6 +214,7 @@ class BudgetTab: UIViewController {
         checkForUserPreference()
         print("Checked Data")
         dateConfig()
+        //Sending Data To Popup
         
         if defaults.bool(forKey: Keys.balanceExisting){
             print("Balance Already Saved And Shown")

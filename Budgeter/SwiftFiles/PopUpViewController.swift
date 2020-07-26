@@ -20,14 +20,18 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     //Alert View
     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let defaults = UserDefaults.standard
+        let currency = defaults.string(forKey: "currencySymbol")
+        currencyText = currency
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         errorLabel.alpha = 0
         self.amountEntered.delegate = self
         self.itemEntered.delegate = self
-
        
-    
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Click Here To Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -88,7 +92,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             let itemName = itemEntered.text!
             let buttonText = button.titleLabel!.text!
             //This Kills Compiler
-            let displayText = "Details:\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+amountEntered.text!
+            let displayText = "Details:\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+currencyText!+amountEntered.text!
             alert.showInfo("Confirm Transaction", subTitle: displayText)
             
         } else{

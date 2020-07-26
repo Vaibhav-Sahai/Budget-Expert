@@ -74,7 +74,6 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(currencySymbol.text)
         errorLabel.alpha = 0
         budgetText.delegate = self
         days.delegate = self
