@@ -28,7 +28,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     
     func validateFields(){
         if budgetText.text?.trimmingCharacters(in:  .whitespacesAndNewlines) == "" ||
-            currencySymbol.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
+            currencySymbol.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "Label" ||
             days.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             errorLabel.alpha = 1
             
@@ -74,11 +74,15 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        print(currencySymbol.text)
         errorLabel.alpha = 0
         budgetText.delegate = self
         days.delegate = self
         rightNow = Date()
         print(rightNow)
+        homeButton.titleLabel!.numberOfLines = 1
+        homeButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        homeButton.titleLabel!.minimumScaleFactor = 0.5
         //Listen for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange), name: UIResponder.keyboardWillHideNotification, object: nil)
