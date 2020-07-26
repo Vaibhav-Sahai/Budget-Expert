@@ -16,7 +16,9 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     var currencyText: String?
     var dataOfPurchasing = Date()
     var button = dropDownBtn()
-
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
+    
     //Alert View
     let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     
@@ -28,6 +30,17 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Cancel Button Optimizations
+        cancelButton.titleLabel!.numberOfLines = 1
+        cancelButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        cancelButton.titleLabel!.minimumScaleFactor = 0.5
+        
+        //Done Button Optimizations
+        doneButton.titleLabel!.numberOfLines = 1
+        doneButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        doneButton.titleLabel!.minimumScaleFactor = 0.5
+        
         errorLabel.alpha = 0
         self.amountEntered.delegate = self
         self.itemEntered.delegate = self
@@ -35,6 +48,10 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Click Here To Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
+        
+        button.titleLabel!.numberOfLines = 1
+        button.titleLabel!.adjustsFontSizeToFitWidth = true
+        button.titleLabel!.minimumScaleFactor = 0.5
         
         self.view.addSubview(button)
         

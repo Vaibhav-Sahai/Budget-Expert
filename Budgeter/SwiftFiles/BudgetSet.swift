@@ -70,6 +70,11 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         currencySymbol.text = currency[row]
     }
     
+    //MARK:- viewWillLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        currencySymbol.text = currency[0]
+    }
     //MARK:- viewDidLoad()
     override func viewDidLoad() {
         super.viewDidLoad()
