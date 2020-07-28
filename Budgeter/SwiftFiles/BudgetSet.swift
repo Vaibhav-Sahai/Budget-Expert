@@ -46,7 +46,7 @@ class BudgetSet: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,
         
         if notification.name == UIResponder.keyboardWillShowNotification ||
             notification.name == UIResponder.keyboardWillChangeFrameNotification{
-            view.frame.origin.y = -keyboardRect.height + 70
+            view.frame.origin.y = -keyboardRect.height + 90
         } else{
             view.frame.origin.y = 0
         }

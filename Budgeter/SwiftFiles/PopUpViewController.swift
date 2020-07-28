@@ -16,6 +16,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     var currencyText: String?
     var dataOfPurchasing = Date()
     var button = dropDownBtn()
+
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var doneButton: UIButton!
     
@@ -28,18 +29,9 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         let currency = defaults.string(forKey: "currencySymbol")
         currencyText = currency
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Cancel Button Optimizations
-        cancelButton.titleLabel!.numberOfLines = 1
-        cancelButton.titleLabel!.adjustsFontSizeToFitWidth = true
-        cancelButton.titleLabel!.minimumScaleFactor = 0.5
-        
-        //Done Button Optimizations
-        doneButton.titleLabel!.numberOfLines = 1
-        doneButton.titleLabel!.adjustsFontSizeToFitWidth = true
-        doneButton.titleLabel!.minimumScaleFactor = 0.5
         
         errorLabel.alpha = 0
         self.amountEntered.delegate = self
@@ -49,9 +41,6 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         button.setTitle("Click Here To Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        button.titleLabel!.numberOfLines = 1
-        button.titleLabel!.adjustsFontSizeToFitWidth = true
-        button.titleLabel!.minimumScaleFactor = 0.5
         
         self.view.addSubview(button)
         
@@ -63,6 +52,20 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         
         button.dropView.dropDownOptions = ["Essentials","Luxury","Misc"]
         
+        //Button Optimization
+        button.titleLabel!.numberOfLines = 1
+        button.titleLabel!.adjustsFontSizeToFitWidth = true
+        button.titleLabel!.minimumScaleFactor = 0.5
+        
+        //Cancel Optimization
+        cancelButton.titleLabel!.numberOfLines = 1
+        cancelButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        cancelButton.titleLabel!.minimumScaleFactor = 0.5
+        
+        //Done Optimization
+        doneButton.titleLabel!.numberOfLines = 1
+        doneButton.titleLabel!.adjustsFontSizeToFitWidth = true
+        doneButton.titleLabel!.minimumScaleFactor = 0.5
     }
     //MARK:- Validation Check
     func validateFields()-> String{
@@ -106,10 +109,11 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             alert.addButton("No"){
                 self.dismiss(animated: true)
             }
+            //MARK:- Info
             let itemName = itemEntered.text!
             let buttonText = button.titleLabel!.text!
             //This Kills Compiler
-            let displayText = "Details:\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+currencyText!+amountEntered.text!
+            let displayText = "Details:-\n Item Name: "+itemName+"\n Item Type: "+buttonText+"\n Price: "+currencyText!+amountEntered.text!
             alert.showInfo("Confirm Transaction", subTitle: displayText)
             
         } else{
