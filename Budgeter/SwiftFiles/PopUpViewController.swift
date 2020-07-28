@@ -36,7 +36,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         errorLabel.alpha = 0
         self.amountEntered.delegate = self
         self.itemEntered.delegate = self
-       
+    
         button = dropDownBtn.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Click Here To Select Transaction Type", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
