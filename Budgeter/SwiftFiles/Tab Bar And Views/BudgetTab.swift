@@ -35,7 +35,8 @@ class BudgetTab: UIViewController {
     let alertBudgetNotReached = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     
     let warnBudget = SCLAlertView()
-        
+    
+    let checkReset = SCLAlertView(appearance: SCLAlertView.SCLAppearance(showCloseButton: false))
     //MARK:- User Defaults Variables
     let defaults = UserDefaults.standard
     struct Keys {
@@ -68,7 +69,14 @@ class BudgetTab: UIViewController {
     }
     //MARK:- Resetting User Defaults
     @IBAction func goToWelcomePage(_ sender: Any) {
-        resetDefaults()
+        checkReset.addButton("Yes"){
+            self.resetDefaults()
+            self.performSegue(withIdentifier: "returnHome", sender: nil)
+        }
+        checkReset.addButton("No"){
+            self.alertBudgetReached.hideView()
+        }
+        checkReset.showInfo("Confirm Reset", subTitle: "Do You Want To Reset The Budget?")
     }
     
     //MARK:- Notifications

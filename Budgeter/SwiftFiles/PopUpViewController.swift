@@ -107,7 +107,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             }
 
             alert.addButton("No"){
-                self.dismiss(animated: true)
+                
             }
             //MARK:- Info
             let itemName = itemEntered.text!

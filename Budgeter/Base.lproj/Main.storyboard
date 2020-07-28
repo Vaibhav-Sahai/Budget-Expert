@@ -96,9 +96,9 @@
         <!--Budget Set-->
         <scene sceneID="lc0-Mc-CuG">
             <objects>
-                <viewController id="EK4-7a-Yvx" userLabel="Budget Set" customClass="BudgetSet" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="menu" id="EK4-7a-Yvx" userLabel="Budget Set" customClass="BudgetSet" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qpz-fk-Ghb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TEV-Vg-Dzu" userLabel="BudgetSet">
@@ -137,7 +137,7 @@
                                 </connections>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Yu-xx-vha">
-                                <rect key="frame" x="106" y="660" width="202" height="36"/>
+                                <rect key="frame" x="106" y="640" width="202" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="ROL-KV-FFo"/>
@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Fill All Fields" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPT-XH-z6c" userLabel="Error Label">
-                                <rect key="frame" x="132.66666666666669" y="631" width="148.66666666666669" height="21"/>
+                                <rect key="frame" x="132.66666666666669" y="611" width="148.66666666666669" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="BBZ-La-h69"/>
                                     <constraint firstAttribute="width" constant="148.66999999999999" id="RAr-JL-brf"/>
@@ -217,11 +217,11 @@
             <objects>
                 <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDe-p6-Xnl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15U-HJ-V2T">
-                                <rect key="frame" x="11" y="230" width="392" height="276"/>
+                                <rect key="frame" x="11" y="220" width="392" height="276"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evX-8V-iAZ" userLabel="TransactionLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="61"/>
@@ -343,11 +343,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmz-IX-6XL" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="179" width="414" height="463"/>
+                                <rect key="frame" x="0.0" y="179" width="414" height="443"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're Over Budget" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WfH-bh-d3J" userLabel="Status Alert">
-                                <rect key="frame" x="132.66666666666666" y="650" width="148.99999999999997" height="21"/>
+                                <rect key="frame" x="132.66666666666666" y="630" width="148.99999999999997" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -385,7 +385,6 @@
                                 <connections>
                                     <action selector="goToWelcomePage:" destination="je1-fX-CiD" eventType="touchUpInside" id="zJO-fL-890"/>
                                     <action selector="unwindFromNextVCWithUnwindSegue:" destination="8hO-6q-qFc" eventType="touchUpInside" id="rnn-NB-tGB"/>
-                                    <segue destination="fvV-47-Phe" kind="presentation" identifier="returnHome" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="wX3-wJ-VNl"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -429,6 +428,7 @@
                         <outlet property="pieChart" destination="nmz-IX-6XL" id="ONQ-zf-Y6a"/>
                         <outlet property="resetBudget" destination="1Ju-u8-BTj" id="Rft-ts-o6p"/>
                         <outlet property="statusLabel" destination="WfH-bh-d3J" id="ZaV-Lf-com"/>
+                        <segue destination="EK4-7a-Yvx" kind="show" identifier="returnHome" id="lgJ-c0-rBJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8hO-6q-qFc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -440,11 +440,11 @@
             <objects>
                 <viewController id="7wQ-3S-xR2" customClass="TransactionLog" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LmV-2U-4Ty">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-Bm-Hpi" userLabel="Transaction Table">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="gGW-lh-gaM" customClass="TransactionCell" customModule="Budget_Expert" customModuleProvider="target">
@@ -577,6 +577,9 @@
             <point key="canvasLocation" x="788.40579710144937" y="-15.401785714285714"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="lgJ-c0-rBJ"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="BudgetIcons" width="25" height="25"/>
         <image name="Gradient" width="414" height="896"/>
