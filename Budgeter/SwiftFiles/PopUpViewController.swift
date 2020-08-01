@@ -43,10 +43,10 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         
         
         self.view.addSubview(button)
-        
+
         button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
-        
+
         button.widthAnchor.constraint(equalToConstant: 314).isActive = true
         button.heightAnchor.constraint(equalToConstant: 34).isActive = true
         
@@ -67,6 +67,7 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         doneButton.titleLabel!.adjustsFontSizeToFitWidth = true
         doneButton.titleLabel!.minimumScaleFactor = 0.5
     }
+    
     //MARK:- Validation Check
     func validateFields()-> String{
         if amountEntered.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||
@@ -107,9 +108,10 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             }
 
             alert.addButton("No"){
-                
+                self.textFieldDidBeginEditing(self.amountEntered)
             }
             //MARK:- Info
+            textFieldDidEndEditing(amountEntered)
             let itemName = itemEntered.text!
             let buttonText = button.titleLabel!.text!
             //This Kills Compiler
@@ -136,6 +138,20 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
         amountEntered.resignFirstResponder()
         itemEntered.resignFirstResponder()
         return(true)
+    }
+    //MARK:- Keyboard Moving up and down
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 200, width:self.view.frame.size.width, height:self.view.frame.size.height);
+
+        })
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 200, width:self.view.frame.size.width, height:self.view.frame.size.height);
+
+        })
     }
 }
 //MARK:- Dropdown Stuff

@@ -217,11 +217,11 @@
             <objects>
                 <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDe-p6-Xnl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15U-HJ-V2T">
-                                <rect key="frame" x="11" y="220" width="392" height="276"/>
+                                <rect key="frame" x="11" y="230" width="392" height="276"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evX-8V-iAZ" userLabel="TransactionLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="61"/>
