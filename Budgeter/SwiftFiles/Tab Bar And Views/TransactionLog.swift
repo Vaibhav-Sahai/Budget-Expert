@@ -85,7 +85,7 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
             informationLabel.text = "Your Transactions Will Show Here"
         }
         if dataForCell.count > 0{
-            informationLabel.text = "Swipe Right On Cells To Delete Them"
+            informationLabel.text = "Swipe Left On Cells To Delete Them"
         }
         return dataForCell.count
     }
