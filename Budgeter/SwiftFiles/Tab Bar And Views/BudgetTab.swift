@@ -25,6 +25,7 @@ class BudgetTab: UIViewController {
     var count: Double?
     var name: String?
     var transactionDate: Date?
+    
     @IBOutlet weak var resetBudget: UIButton!
     //Setting Up Custom Alerts
     /*let noCloseButton = SCLAlertView.SCLAppearance(
@@ -100,7 +101,7 @@ class BudgetTab: UIViewController {
     }
     //MARK:- CountDown
     lazy var calendar = Calendar.current
-    lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)
+    lazy var finalDate = calendar.date(byAdding: .day, value: Int(initialDifference!)!, to: startingDate!)!
     
     //MARK:- Chart Variables
     var balanceAmount = PieChartDataEntry(value: 0)
@@ -418,8 +419,24 @@ class BudgetTab: UIViewController {
     }
     //MARK:- Date Config
     func dateConfig() {
-        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate!).day!
-        budgetType.text = String(differenceBetweenDates)
+        let differenceBetweenDates = calendar.dateComponents([.day], from: rightNow, to: finalDate).day!
+        budgetType.text = String(differenceBetweenDates+1)
+        
+        //Checking to see if the date is correct
+        let components1 = calendar.dateComponents([.day], from: rightNow)
+        let components2 = calendar.dateComponents([.month], from: rightNow)
+        let components3 = calendar.dateComponents([.year], from: rightNow)
+        
+        let components4 = calendar.dateComponents([.day], from: finalDate)
+        let components5 = calendar.dateComponents([.month], from: finalDate)
+        let components6 = calendar.dateComponents([.year], from: finalDate)
+        
+        if differenceBetweenDates == 0 || differenceBetweenDates < 0{
+            if components1 == components4 && components2 == components5 && components3 == components6{
+                budgetType.text = "-1"
+            }
+        }
+        print("Difference Between Dates: ",differenceBetweenDates)
     }
     
     //MARK:- User Defaults
