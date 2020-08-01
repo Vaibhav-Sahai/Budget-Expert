@@ -99,6 +99,8 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
     //MARK:- Transfer Data
     @IBAction func transactionDonePressed(_ sender: Any) {
         if validateFields() == "Success" && checkAmountSyntax() == "Success"{
+            amountEntered.resignFirstResponder()
+            view.endEditing(true)
             alert.addButton("Yes"){
                 NotificationCenter.default.post(name: .saveAmountEntered, object: self)
                 NotificationCenter.default.post(name: .saveTypeEntered, object: self)
@@ -108,10 +110,10 @@ class PopUpViewController: UIViewController, UITextFieldDelegate {
             }
 
             alert.addButton("No"){
-                self.textFieldDidBeginEditing(self.amountEntered)
+
             }
             //MARK:- Info
-            textFieldDidEndEditing(amountEntered)
+  
             let itemName = itemEntered.text!
             let buttonText = button.titleLabel!.text!
             //This Kills Compiler
