@@ -16,6 +16,7 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     var transactionDate: Date?
     var transactionCurrency: String?
     var dateInText: String?
+    @IBOutlet weak var informationLabel: UILabel!
     
     let defaults = UserDefaults.standard
     var dataForCell = [[String?]]()
@@ -80,6 +81,12 @@ class TransactionLog: UIViewController, UITableViewDataSource, UITableViewDelega
     //MARK:- Table View Setup
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if dataForCell.count == 0{
+            informationLabel.text = "Your Transactions Will Show Here"
+        }
+        if dataForCell.count > 0{
+            informationLabel.text = "Swipe Right On Cells To Delete Them"
+        }
         return dataForCell.count
     }
     

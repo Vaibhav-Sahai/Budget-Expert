@@ -217,11 +217,11 @@
             <objects>
                 <viewController title="Popup " modalPresentationStyle="overCurrentContext" id="O3M-kS-2ua" customClass="PopUpViewController" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CDe-p6-Xnl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="15U-HJ-V2T">
-                                <rect key="frame" x="11" y="230" width="392" height="276"/>
+                                <rect key="frame" x="11" y="220" width="392" height="276"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Transaction Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evX-8V-iAZ" userLabel="TransactionLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="392" height="61"/>
@@ -299,7 +299,7 @@
             <objects>
                 <viewController storyboardIdentifier="BudgetTab" id="je1-fX-CiD" customClass="BudgetTab" customModule="Budget_Expert" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sTK-n2-DEt">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Days Left:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JBp-XB-KZi">
@@ -444,7 +444,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="S8c-Bm-Hpi" userLabel="Transaction Table">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="667"/>
+                                <rect key="frame" x="0.0" y="42" width="414" height="625"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="100" id="gGW-lh-gaM" customClass="TransactionCell" customModule="Budget_Expert" customModuleProvider="target">
@@ -517,24 +517,35 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Transactions Will Show Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ezN-LT-3PC" userLabel="Information Label">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="S8c-Bm-Hpi" firstAttribute="trailing" secondItem="hEs-JY-Ed1" secondAttribute="trailing" id="A6D-Ya-tdI"/>
                             <constraint firstItem="S8c-Bm-Hpi" firstAttribute="leading" secondItem="hEs-JY-Ed1" secondAttribute="leading" id="GAX-Y1-brg"/>
-                            <constraint firstItem="S8c-Bm-Hpi" firstAttribute="top" secondItem="hEs-JY-Ed1" secondAttribute="top" id="YyR-s8-JVX"/>
+                            <constraint firstItem="S8c-Bm-Hpi" firstAttribute="top" secondItem="ezN-LT-3PC" secondAttribute="bottom" id="XB4-NC-Sg0"/>
+                            <constraint firstItem="S8c-Bm-Hpi" firstAttribute="top" secondItem="hEs-JY-Ed1" secondAttribute="top" constant="42" id="YyR-s8-JVX"/>
                             <constraint firstItem="S8c-Bm-Hpi" firstAttribute="bottom" secondItem="hEs-JY-Ed1" secondAttribute="bottom" id="cRc-pn-sYJ"/>
+                            <constraint firstItem="hEs-JY-Ed1" firstAttribute="trailing" secondItem="ezN-LT-3PC" secondAttribute="trailing" id="i7S-n0-sPC"/>
+                            <constraint firstItem="ezN-LT-3PC" firstAttribute="top" secondItem="hEs-JY-Ed1" secondAttribute="top" id="iKv-sd-PIo"/>
+                            <constraint firstItem="ezN-LT-3PC" firstAttribute="leading" secondItem="hEs-JY-Ed1" secondAttribute="leading" id="lNv-2L-GSh"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hEs-JY-Ed1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transactions" image="Transactions" id="qvt-lc-ZcN"/>
                     <connections>
+                        <outlet property="informationLabel" destination="ezN-LT-3PC" id="wYd-ce-dfy"/>
                         <outlet property="tableView" destination="S8c-Bm-Hpi" id="faF-A8-P5w"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQS-aB-BB4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4107.2463768115949" y="774.77678571428567"/>
+            <point key="canvasLocation" x="4107.2463768115949" y="774.45652173913049"/>
         </scene>
         <!--MainTabBar-->
         <scene sceneID="kzo-zN-7Fu">
